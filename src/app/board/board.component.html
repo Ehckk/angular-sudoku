@@ -1,0 +1,43 @@
+<main class="board" [ngSwitch]="mode">
+	<ng-container *ngSwitchCase="'Play'">
+		<p class="board__text" [innerText]="isWin ? 'Win' : 'Play'"></p>
+		<div class="board__board">
+			<div class="board__row" *ngFor="let row of sudoku.squares; let y = index">
+				<square 
+					*ngFor="let col of row; let x = index"
+					(click)="squareClicked(y, x)"
+					[value]="sudoku.squares[y][x].value"
+					[column]="x"
+					[invalid]="sudoku.squares[y][x].invalid"
+					[mode]="mode">
+				</square>
+			</div>
+		</div>
+		<!-- TODO: Give up button -> autocomplete -->
+	</ng-container>
+	<ng-container *ngSwitchCase="'Generate'">
+		<p class="board__text" [innerText]="isGenerating ? 'Generating...' : 'Generate a New Board'"></p>
+		<div class="board__board">
+			<div class="board__row" *ngFor="let row of sudoku.squares; let y = index">
+				<square 
+					*ngFor="let col of row; let x = index"
+					(click)="squareClicked(y, x)"
+					[value]="sudoku.squares[y][x].value"
+					[column]="x"
+					[mode]="mode">
+				</square>
+			</div>
+		</div>
+	</ng-container>	
+</main>
+<controls
+	[mode]="mode"
+	[isWin]="isWin"
+	[isEmpty]="isEmpty"
+	[isGenerating]="isGenerating"
+	[isSaving]="isSaving"
+	[isReset]="isReset"
+	[isFetching]="isFetching"
+	[isSolving]="isSolving"
+	(controlState)="handleClick($event)">
+</controls>

@@ -1,0 +1,30 @@
+.board__square { 
+	height: 3rem;
+	width: 3rem;
+	border-width: 2px;
+	border-style: solid;
+	border-color: var(--color-border);
+	display: flex;
+	align-items: center; 
+	justify-content: center;
+	background-color: var(--color-square-locked);
+	color: var(--color-square-text);
+	font-size: 2rem;
+	font-weight: bold;
+	user-select: none; 
+}
+.board__square.canEdit {
+	background-color: var(--color-square);
+}
+.board__square.invalid {
+	background-color: var(--color-square-red);
+}
+.board__square.canEdit:hover {
+	background-color: var(--color-square-hover);
+}
+.board__square.L {
+	border-left-width: 4px;
+}
+.board__square.R {
+	border-right-width: 4px;
+}

@@ -1,0 +1,25 @@
+.navbar {
+	color: var(--color-font-1);
+}
+.navbar__title {
+	padding: .75rem;
+	background-color: var(--color-1);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 2.5rem;
+}
+.navbar__links {
+	height: 3rem;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	background-color: var(--color-2);
+	user-select: none;
+}
+.navbar__item {
+	color: var(--color-font-2);
+	list-style: none;
+	font-size: 1.25rem;
+}
