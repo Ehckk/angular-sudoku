@@ -1,63 +1,67 @@
-.playboard__square { 
-	height: 3rem;
-	width: 3rem;
-	border-width: 2px;
-	border-style: solid;
-	border-color: var(--color-border);
+.playboard__container {
+	margin-top: 1rem;
+	min-height: 37rem;
 	display: flex;
-	align-items: center; 
-	justify-content: center;
-	background-color: var(--color-square-locked);
-	color: var(--color-square-text);
-	font-size: 2rem;
-	font-weight: bold;
-	user-select: none; 
 }
-.playboard__square.canEdit {
-	background-color: var(--color-square);
-}
-.playboard__square.canEdit:hover {
-	background-color: var(--color-square-hover);
-}
-.playboard__square.invalid {
-	background-color: var(--color-square-red);
-}
-.playboard__square.invalid:hover {
-	background-color: var(--color-square-red-hover);
-}
-.playboard__square.L {
-	border-left-width: 4px;
-}
-.playboard__square.R {
-	border-right-width: 4px;
-}
-.board__board {
-	min-height: 28.25rem;
-	min-width: 27rem;
+
+.playboard {
+	min-width: 36.5rem;
+	min-height: 37rem;
 	border-width: .25rem;
 	border-style: solid;
 	border-color: var(--color-border);
 	display: flex;
+	justify-content: center;
+	align-items: center;
 	flex-direction: column;
+}
+.playboard__row {
+	display: flex;
+	background-color: var(--color-border);
+}
+.playboard__row:nth-child(3n + 4) {
+	border-top-width: .25rem;
+	border-top-color: var(--color-border);
+	border-top-style: solid;
+}
+.playboard.loading {
+	border-color: transparent;
+}
+.playboard__buttonWrapper {
+	width: 18rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+.playboard__button {
+	min-width: 10rem;
+	min-height: 3rem;
+	margin: 1rem;
+	border: none;
+	border-radius: 2rem;
+	font-size: 1.25rem; 
+	background-color: var(--color-button);
+	color: var(--color-font-2);
+	outline: none;
+	user-select: none;
+	display: flex;
 	align-items: center;
 	justify-content: center;
 }
-.board__board.loading {
-	border-color: transparent;
+.playboard__button:hover {
+	background-color: var(--color-button-hover);
 }
-
-
-.board__row:nth-child(3n + 1) {
-	border-top-width: 2px;
-	border-top-style: solid;
-	border-top-color: var(--color-border);
+.playboard__button:active {
+	background-color: var(--color-border);
+	transform: translateY(.25rem);
 }
-.board__row:nth-child(3n) {
-	border-bottom-width: 2px;
-	border-bottom-style: solid;
-	border-bottom-color: var(--color-border);
+.playboard__button.disabled {
+	background-color: var(--color-button-disabled);
+	pointer-events: none;
+	user-select: none;
 }
-.board__spinner {
+.playboard__spinner {
 	height: 9rem;
 	width: 9rem;
 	border-radius: 50%;

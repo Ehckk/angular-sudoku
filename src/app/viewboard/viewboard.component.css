@@ -37,6 +37,9 @@
 	color: var(--color-font-2);
 	outline: none;
 	user-select: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 .viewboard__button:hover {
 	background-color: var(--color-button-hover);

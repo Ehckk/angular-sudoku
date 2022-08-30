@@ -1,0 +1,33 @@
+.playboard__square { 
+	height: 4rem;
+	width: 4rem;
+	border-width: .125rem;
+	border-style: solid;
+	border-color: var(--color-border);
+	display: flex;
+	align-items: center; 
+	justify-content: center;
+	background-color: var(--color-square-locked);
+	color: var(--color-square-text);
+	font-size: 2.5rem;
+	font-weight: bold;
+	user-select: none; 
+}
+.playboard__square.canEdit {
+	background-color: var(--color-square);
+}
+.playboard__square.canEdit:hover {
+	background-color: var(--color-square-hover);
+}
+.playboard__square.invalid {
+	background-color: var(--color-square-red);
+}
+.playboard__square.invalid:hover {
+	background-color: var(--color-square-red-hover);
+}
+.playboard__square.L {
+	border-left-width: .25rem;
+}
+.playboard__square.R {
+	border-right-width: .25rem;
+}
