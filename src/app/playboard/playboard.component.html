@@ -21,7 +21,7 @@
 		<div class="playboard__buttonWrapper">
 			<div class="playboard__button" [class.disabled]="isSolving || isFetching || isWin">{{ 'Reset' }}</div>
 			<div class="playboard__button" [class.disabled]="isSolving || isFetching">{{ 'New Game' }}</div>
-			<div class="playboard__button" [class.disabled]="isSolving || isFetching || isWin">{{ isSolving ? 'Give Up' : 'Solving' }}</div>
+			<div class="playboard__button" [class.disabled]="isSolving || isFetching || isWin">{{ isSolving ? 'Solving...' : 'Give Up' }}</div>
 		</div>
 	</div>
 	<!-- TODO new york times site lol -->

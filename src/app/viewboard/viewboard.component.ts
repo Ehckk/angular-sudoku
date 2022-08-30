@@ -31,7 +31,7 @@ export class ViewboardComponent implements OnInit {
   saveBoard(): void {
     const ref = this.db.list('boards')
     ref.push(this.sudoku.squares).then(() => {
-      this.state = ViewBoardStates.Full
+      this.state = ViewBoardStates.Saving
     }).catch((error) => {
       console.error(error);
       this.state = ViewBoardStates.Full
