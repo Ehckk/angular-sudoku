@@ -1,0 +1,21 @@
+.viewboard__square { 
+	height: 3rem;
+	width: 3rem;
+	border-width: .125rem;
+	border-style: solid;
+	border-color: var(--color-border);
+	display: flex;
+	align-items: center; 
+	justify-content: center;
+	background-color: var(--color-square-locked);
+	color: var(--color-square-text);
+	font-size: 2rem;
+	font-weight: bold;
+	user-select: none; 
+}
+.viewboard__square.L {
+	border-left-width: .25rem;
+}
+.viewboard__square.R {
+	border-right-width: .25rem;
+}

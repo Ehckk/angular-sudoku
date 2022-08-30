@@ -2,22 +2,25 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { SquareComponent } from './square/square.component';
-import { BoardComponent } from './board/board.component';
-
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat'
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-import { ControlsComponent } from './controls/controls.component'
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
+import { HeaderComponent } from './header/header.component';
+import { ViewboardComponent } from './viewboard/viewboard.component';
+import { PlayboardComponent } from './playboard/playboard.component';
+import { ViewsquareComponent } from './viewsquare/viewsquare.component';
+import { PlaysquareComponent } from './playsquare/playsquare.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SquareComponent,
-    BoardComponent,
-    ControlsComponent,
+    HeaderComponent,
+    ViewboardComponent,
+    PlayboardComponent,
+    ViewsquareComponent,
+    PlaysquareComponent,
   ],
   imports: [
     SharedModule.forRoot(),

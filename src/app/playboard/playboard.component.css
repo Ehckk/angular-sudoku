@@ -1,0 +1,83 @@
+.playboard__square { 
+	height: 3rem;
+	width: 3rem;
+	border-width: 2px;
+	border-style: solid;
+	border-color: var(--color-border);
+	display: flex;
+	align-items: center; 
+	justify-content: center;
+	background-color: var(--color-square-locked);
+	color: var(--color-square-text);
+	font-size: 2rem;
+	font-weight: bold;
+	user-select: none; 
+}
+.playboard__square.canEdit {
+	background-color: var(--color-square);
+}
+.playboard__square.canEdit:hover {
+	background-color: var(--color-square-hover);
+}
+.playboard__square.invalid {
+	background-color: var(--color-square-red);
+}
+.playboard__square.invalid:hover {
+	background-color: var(--color-square-red-hover);
+}
+.playboard__square.L {
+	border-left-width: 4px;
+}
+.playboard__square.R {
+	border-right-width: 4px;
+}
+.board__board {
+	min-height: 28.25rem;
+	min-width: 27rem;
+	border-width: .25rem;
+	border-style: solid;
+	border-color: var(--color-border);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.board__board.loading {
+	border-color: transparent;
+}
+
+
+.board__row:nth-child(3n + 1) {
+	border-top-width: 2px;
+	border-top-style: solid;
+	border-top-color: var(--color-border);
+}
+.board__row:nth-child(3n) {
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: var(--color-border);
+}
+.board__spinner {
+	height: 9rem;
+	width: 9rem;
+	border-radius: 50%;
+	border-top-color: var(--color-button-hover);
+	border-right-color: var(--color-button-hover);
+	border-bottom-color: var(--color-button-disabled);
+	border-left-color: var(--color-button-disabled);
+	border-width: 1.5rem;
+	border-style: solid;
+	animation-name: Spin;
+	animation-iteration-count: infinite;
+	animation-duration: 1s;
+	animation-timing-function: ease-in-out;
+}
+
+@keyframes Spin {
+	0% {
+		transform: rotateZ(0deg);
+	}
+	100% {
+		transform: rotateZ(360deg);
+	}
+}

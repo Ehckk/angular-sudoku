@@ -1,0 +1,53 @@
+<main>
+	<!-- TODO hey you know that one sudoku board with the subbuttons annd tools to cross out numbers yeah put that here lol -->
+	<header [textContent]="headerText"></header>
+	<div class="playboard__container">
+		<div class="playboard">
+			<div class="playboard__row">
+
+			</div>
+		</div>
+		<div class="playboard__buttonWrapper">
+			<div class="playboard__button" [class.disabled]="isSolving || isFetching || isWin">{{ 'Reset' }}</div>
+			<div class="playboard__button" [class.disabled]="isSolving || isFetching">{{ 'New Game' }}</div>
+			<div class="playboard__button" [class.disabled]="isSolving || isFetching || isWin">{{ isSolving ? 'Give Up' : 'Solving' }}</div>
+		</div>
+	</div>
+	<!-- TODO new york times site lol -->
+	<!-- TODO use random generation to make eahc subgrid have 3/5/7 squares locked on hard/med/easy -->
+	<!-- TODO candidates -->
+	<!-- TODO candidates -->
+	<!-- TODO candidates -->
+	<!-- TODO candidates -->
+	<!-- TODO candidates -->
+	<!-- TODO candidates -->
+	<!-- TODO candidates -->
+	<!-- TODO candidates -->
+	<!-- TODO keyboard support -->
+	<!-- TODO keyboard support (both arrows and numbers )-->
+	<!-- TODO make the board larger and move controls to a sidebar for here -->
+	<!-- <ng-container *ngSwitchCase="mode === 'Generate'"> -->
+		
+	<!-- </ng-container> -->
+	<!-- <ng-container *ngSwitchCase="mode === 'Play' && isFetching"> -->
+		<!-- <div class="board__board" [class.loading]="isFetching"> -->
+			<!-- <span class="board__spinner"></span> -->
+		<!-- </div> -->
+		<!-- TODO: Give up button -> autocomplete -->
+	<!-- </ng-container>	 -->
+	<!-- <ng-container *ngSwitchCase="mode === 'Play' && !isFetching"> -->
+		<!-- <div class="board__board"> -->
+			<!-- <div class="board__row" *ngFor="let row of sudoku.squares; let y = index"> -->
+				<!-- <square 
+					*ngFor="let col of row; let x = index"
+					(click)="squareClicked(y, x)"
+					[value]="sudoku.squares[y][x].value"
+					[column]="x"
+					[invalid]="sudoku.squares[y][x].invalid"
+					[locked]="sudoku.squares[y][x].locked"
+					[mode]="mode">
+				</square> -->
+			<!-- </div>
+		</div>
+	</ng-container> -->
+</main>

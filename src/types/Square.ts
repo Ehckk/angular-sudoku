@@ -1,8 +1,10 @@
 interface Square { 
 	value: number | null
-	current: boolean
-	invalid: boolean
-	canEdit: boolean 
 }
 
-export type { Square }
+interface PlaySquare extends Square {
+	invalid: boolean
+	locked: boolean
+}
+
+export type { Square, PlaySquare }
