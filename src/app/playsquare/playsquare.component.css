@@ -1,6 +1,6 @@
 .playboard__square { 
-	height: 4rem;
-	width: 4rem;
+	height: 3.6rem;
+	width: 3.6rem;
 	border-width: .125rem;
 	border-style: solid;
 	border-color: var(--color-border);

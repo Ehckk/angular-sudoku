@@ -1,12 +1,12 @@
 .playboard__container {
-	margin-top: 1rem;
-	min-height: 37rem;
+	margin-top: 2.5rem;
+	min-height: 32.9rem;
 	display: flex;
 }
 
 .playboard {
-	min-width: 36.5rem;
-	min-height: 37rem;
+	min-width: 32.9rem;
+	min-height: 32.9rem;
 	border-width: .25rem;
 	border-style: solid;
 	border-color: var(--color-border);
@@ -29,6 +29,7 @@
 }
 .playboard__buttonWrapper {
 	width: 18rem;
+	height: 32.9rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
