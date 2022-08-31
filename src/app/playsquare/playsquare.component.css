@@ -13,6 +13,12 @@
 	font-weight: bold;
 	user-select: none; 
 }
+.playboard__square.unfilled {
+	content: '';
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+}
 .playboard__square.canEdit {
 	background-color: var(--color-square);
 }
@@ -30,4 +36,22 @@
 }
 .playboard__square.R {
 	border-right-width: .25rem;
+}
+.playboard__subsquare {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;	
+	font-size: .9rem;
+	color: var(--color-button);
+}
+.playboard__subsquare:hover {
+	color: var(--color-button-disabled);
+}
+.playboard__square.hidden {
+	color: var(--color-square-locked);
+}
+.playboard__subsquare.hidden:hover {
+	color: var(--color-button);
 }
