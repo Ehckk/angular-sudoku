@@ -71,7 +71,7 @@ export class SudokuService {
 			return false
 		}
 		this.squares[y][x].value = newNumbers.splice(0, 1)[0]
-		await new Promise(resolve => setTimeout(resolve, 10))
+		await new Promise(resolve => setTimeout(resolve, 25))
 		if (y === 8 && x === 8) {
 			return true
 		}
