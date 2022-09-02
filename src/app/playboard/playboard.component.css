@@ -1,15 +1,17 @@
 .playboard__container {
 	margin-top: 2.5rem;
-	min-height: 32.9rem;
+	min-width: 51.9rem;
+	min-height: 33.9rem;
 	display: flex;
 }
 
 .playboard {
-	min-width: 32.9rem;
-	min-height: 32.9rem;
-	border-width: .25rem;
+	min-width: 33.9rem;
+	min-height: 33.9rem;
+	border-width: .5rem;
 	border-style: solid;
-	border-color: var(--color-border);
+	border-color: var(--color-border-dark);
+	background-color: var(--color-border);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -20,12 +22,14 @@
 	background-color: var(--color-border);
 }
 .playboard__row:nth-child(3n + 4) {
-	border-top-width: .25rem;
+	margin-top: .25rem;
+	/* border-top-width: .25rem;
 	border-top-color: var(--color-border);
-	border-top-style: solid;
+	border-top-style: solid; */
 }
 .playboard.loading {
 	border-color: transparent;
+	background-color: transparent;
 }
 .playboard__buttonWrapper {
 	width: 18rem;

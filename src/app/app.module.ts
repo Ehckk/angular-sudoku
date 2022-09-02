@@ -12,6 +12,7 @@ import { ViewboardComponent } from './viewboard/viewboard.component';
 import { PlayboardComponent } from './playboard/playboard.component';
 import { ViewsquareComponent } from './viewsquare/viewsquare.component';
 import { PlaysquareComponent } from './playsquare/playsquare.component';
+import { CandidateComponent } from './candidate/candidate.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { PlaysquareComponent } from './playsquare/playsquare.component';
     PlayboardComponent,
     ViewsquareComponent,
     PlaysquareComponent,
+    CandidateComponent,
   ],
   imports: [
     SharedModule.forRoot(),

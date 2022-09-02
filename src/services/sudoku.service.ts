@@ -8,7 +8,10 @@ import { Difficulty, Square, SudokuValue } from "src/types";
 export class SudokuService {
 	squares: Square[][] = this.newBoard
 	isWon: boolean
-	
+	highlightX: number = -1
+	highlightY: number = -1
+	auto: boolean = false
+
 	get newBoard(): Square[][] {
 		return (Array(9).fill(null).map((row) => Array(9).fill(null)) as SudokuValue[][]).map((row) => row.map((s) => {
 			return { value: s }
@@ -91,6 +94,9 @@ export class SudokuService {
 	setSquare(num: SudokuValue, y: number, x: number) {
 		// TODO reverse mode based on switch or keyboard input
 		this.squares[y][x].value = num
+	}
+	toggleAuto() {
+		this.auto = !this.auto
 	}
 
 	incrementSquare(y: number, x: number) {

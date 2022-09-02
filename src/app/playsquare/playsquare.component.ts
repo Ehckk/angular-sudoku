@@ -1,37 +1,36 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { SudokuService } from 'src/services/sudoku.service';
 import { SudokuValue } from 'src/types';
 
 @Component({
   selector: 'playsquare',
-  template: `<div class="playboard__square" [class.L]="x > 0 && x % 3 === 0" [class.R]="x < 8 && x % 3 === 2">{{ value }}
-    <!-- TODO filled or unfilled class binding to disable or enable a css grid -->
-    <ng-container *ngFor="let num of numbers">
-      <!-- <div class="playboard__subsquare" [class.hidden]="toggleCandidate()">{{ num }}</div> -->
-      <!-- TODO extract to it's own component -->
-    </ng-container>
-  </div>`,  
+  templateUrl: './playsquare.component.html',
   styleUrls: ['./playsquare.component.css']
 })
+  // TODO
+  // - playable sudoku game logic
+  // - playsquares can be highlighted by clicking on them or arrow keys 
+  // - typing a number puts it in the square, backspace clears it
+  // - candidate mode 
 export class PlaysquareComponent implements OnInit {
   @Input() x: number
   @Input() y: number
-  @Input() value: SudokuValue
   @Input() invalid: boolean
   @Input() locked: boolean
-  @Input() possibleNumbers: number[]
   numbers: number[] = Array.from(Array(9).keys()).map((n) => n + 1)
-  candidates: number[] = Array.from(Array(9).keys()).map((n) => n + 1)
+  value: SudokuValue
   
-  constructor() { }
+  constructor(public sudoku: SudokuService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    
+  }
+
+  getPossibleNumbers() {
+    return this.numbers.filter((num) => this.sudoku.validMove(num, this.x, this.y))
   }
 
   toggleCandidate(num: number) {
-    if (this.candidates.some((n) => n === num)) {
-      // Extract to it's own component
-
-      
-    }
-  }
+    return !this.getPossibleNumbers().some((n) => n === num)
+  } 
 }

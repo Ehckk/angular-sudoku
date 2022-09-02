@@ -1,7 +1,7 @@
 .viewboard__square { 
 	height: 3rem;
 	width: 3rem;
-	border-width: .125rem;
+	border-width: .052rem;
 	border-style: solid;
 	border-color: var(--color-border);
 	display: flex;
@@ -13,9 +13,6 @@
 	font-weight: bold;
 	user-select: none; 
 }
-.viewboard__square.L {
-	border-left-width: .25rem;
-}
-.viewboard__square.R {
-	border-right-width: .25rem;
+.viewboard__square.borderL {
+	margin-left: .208rem;
 }

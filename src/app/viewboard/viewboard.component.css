@@ -1,8 +1,9 @@
 .viewboard {
 	min-height: 27rem;
-	border-width: .25rem;
+	border-width: .5rem;
 	border-style: solid;
-	border-color: var(--color-border);
+	border-color: var(--color-border-dark);
+	background-color: var(--color-border);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -15,9 +16,7 @@
 }
 
 .viewboard__row:nth-child(3n + 4) {
-	border-top-width: .25rem;
-	border-top-color: var(--color-border);
-	border-top-style: solid;
+	margin-top: .208rem;
 }
 
 .viewboard__buttonWrapper {

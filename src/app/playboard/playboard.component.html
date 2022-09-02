@@ -1,14 +1,15 @@
 <main>
 	<!-- TODO hey you know that one sudoku board with the subbuttons annd tools to cross out numbers yeah put that here lol -->
 	<div class="playboard__container">
-		<div class="playboard" [ngSwitch]="true" [class.loading]="isFetching">
+		<div class="playboard" 
+			[ngSwitch]="true" 
+			[class.loading]="isFetching">
 			<ng-container *ngSwitchCase="isFetching">
 				<span class="playboard__spinner"></span>
 			</ng-container>
 			<ng-container *ngSwitchCase="!isFetching">
 				<div class="playboard__row" *ngFor="let row of currentBoard; let y = index">
 					<playsquare *ngFor="let col of row; let x = index" 
-						[value]="col.value" 
 						[x]="x" 
 						[y]="y" 
 						[invalid]="col.invalid ?? false" 
@@ -22,6 +23,8 @@
 			<div class="playboard__button" [class.disabled]="isSolving || isFetching || isWin">{{ 'Reset' }}</div>
 			<div class="playboard__button" [class.disabled]="isSolving || isFetching">{{ 'New Game' }}</div>
 			<div class="playboard__button" [class.disabled]="isSolving || isFetching || isWin">{{ isSolving ? 'Solving...' : 'Give Up' }}</div>
+			<input type="checkbox" [checked]="sudoku.auto" (click)="sudoku.toggleAuto()">
+			<!-- TODO Make it a toggle switch -->
 		</div>
 	</div>
 	<!-- TODO new york times site lol -->

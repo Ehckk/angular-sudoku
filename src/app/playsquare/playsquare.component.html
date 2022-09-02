@@ -1,0 +1,13 @@
+<div class="playboard__square" 
+	[class.selected]="sudoku.highlightX === x && sudoku.highlightY === y"  
+	[class.borderL]="x === 3 || x == 6"
+	[class.unfilled]="sudoku.squares[y][x].value === null"
+	>{{ sudoku.squares[y][x].value ?? '' }}
+	<ng-container *ngIf="sudoku.squares[y][x].value === null">
+	  <candidate *ngFor="let num of numbers" 
+	  	[candidate]="num" 
+		[hidden]="toggleCandidate(num)" 
+		[highlighted]="sudoku.highlightX === x && sudoku.highlightY === y">
+	</candidate>
+	</ng-container>
+  </div>

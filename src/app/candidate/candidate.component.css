@@ -1,0 +1,40 @@
+.candidate__subsquare {
+	cursor: pointer;
+	width: 100%;
+	height: 100%;
+	font-size: .875rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: transparent;	
+}
+.candidate__subsquare.auto {
+	pointer-events: none;
+}
+.candidate__subsquare:hover {
+	color: var(--color-candidate);
+}
+.candidate__subsquare.selected {
+	color: var(--color-border);
+}
+.candidate__subsquare.selected:hover {
+	color: var(--color-button);
+}
+.candidate__subsquare.hidden {
+	visibility: hidden;
+}
+.candidate__subsquare.highlighted:hover {
+	color: var(--color-color-3)
+}
+.candidate__subsquare.highlighted.selected {
+	color: var(--color-button-disabled)
+}
+.candidate__subsquare.highlighted.selected:hover {
+	color: var(--color-border-dark);
+}
+.candidate__subsquare.auto {
+	color: var(--color-border);
+}
+.candidate__subsquare.highlighted.auto {
+	color: var(--color-button-disabled)
+}
