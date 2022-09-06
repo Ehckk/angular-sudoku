@@ -12,55 +12,28 @@
 					<playsquare *ngFor="let col of row; let x = index" 
 						[x]="x" 
 						[y]="y" 
-						[invalid]="col.invalid ?? false" 
+						[value]="col.value"
+						[selected]="sudoku.highlightX === x && sudoku.highlightY === y"
+						[invalid]="col.invalid" 
 						[locked]="col.locked">
+						(squareEvent)="setSelectedSquare(x, y)"
 						[possibleNumbers]="col.possibleNumbers ?? []"
 					</playsquare>
 				</div>
 			</ng-container>
 		</div>
 		<div class="playboard__buttonWrapper">
-			<div class="playboard__button" [class.disabled]="isSolving || isFetching || isWin">{{ 'Reset' }}</div>
-			<div class="playboard__button" [class.disabled]="isSolving || isFetching">{{ 'New Game' }}</div>
-			<div class="playboard__button" [class.disabled]="isSolving || isFetching || isWin">{{ isSolving ? 'Solving...' : 'Give Up' }}</div>
-			<input type="checkbox" [checked]="sudoku.auto" (click)="sudoku.toggleAuto()">
-			<!-- TODO Make it a toggle switch -->
+			<div class="playboard__button" [class.disabled]="isSolving || isFetching" (click)="clearBoard()">{{ 'Reset' }}</div>
+			<div class="playboard__button" [class.disabled]="isSolving || isFetching" (click)="getPlayableBoardFromDatabase()">{{ 'New Game' }}</div>
+			<div class="playboard__button" [class.disabled]="isSolving || isFetching || isWin" (click)="solveBoard()">{{ isSolving ? 'Solving...' : 'Give Up' }}</div>
+			<!-- TODO 🥶☝ -->
+			<!-- TODO: <input type="checkbox" [checked]="sudoku.auto" (click)="sudoku.toggleAuto()"> -->
+			<!-- TODO: <input type="checkbox" [checked]="candidateMode" (click)="toggleMode()"> -->
+			<!-- TODO extract to switch component -->
+			<!-- TODO have switch component toggle a dependency injected variable because shared state  -->
+			<!-- TODO: seperate the playable board logic from the generated board logic -->
 		</div>
 	</div>
-	<!-- TODO new york times site lol -->
 	<!-- TODO use random generation to make eahc subgrid have 3/5/7 squares locked on hard/med/easy -->
-	<!-- TODO candidates -->
-	<!-- TODO candidates -->
-	<!-- TODO candidates -->
-	<!-- TODO candidates -->
-	<!-- TODO candidates -->
-	<!-- TODO candidates -->
-	<!-- TODO candidates -->
-	<!-- TODO candidates -->
-	<!-- TODO keyboard support -->
-	<!-- TODO keyboard support (both arrows and numbers )-->
 	<!-- TODO make the board larger and move controls to a sidebar for here -->
-	<!-- <ng-container *ngSwitchCase="mode === 'Generate'"> -->
-		
-	<!-- </ng-container> -->
-	<!-- <ng-container *ngSwitchCase="mode === 'Play' && isFetching"> -->
-		<!-- <div class="board__board" [class.loading]="isFetching"> -->
-		<!-- </div> -->
-		<!-- TODO: Give up button -> autocomplete -->
-	<!-- </ng-container>	 -->
-	<!-- <ng-container *ngSwitchCase="mode === 'Play' && !isFetching"> -->
-		<!-- <div class="board__board"> -->
-			<!-- <div class="board__row" *ngFor="let row of sudoku.squares; let y = index"> -->
-				<!-- <square 
-					*ngFor="let col of row; let x = index"
-					(click)="squareClicked(y, x)"
-					[value]="sudoku.squares[y][x].value"
-					[column]="x"
-					[invalid]="sudoku.squares[y][x].invalid"
-					[locked]="sudoku.squares[y][x].locked"
-					[mode]="mode">
-				</square> -->
-			<!-- </div>
-		</div>
-	</ng-container> -->
 </main>

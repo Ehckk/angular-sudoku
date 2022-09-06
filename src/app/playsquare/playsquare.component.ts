@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { SudokuService } from 'src/services/sudoku.service';
 import { SudokuValue } from 'src/types';
 
@@ -7,23 +7,22 @@ import { SudokuValue } from 'src/types';
   templateUrl: './playsquare.component.html',
   styleUrls: ['./playsquare.component.css']
 })
-  // TODO
-  // - playable sudoku game logic
-  // - playsquares can be highlighted by clicking on them or arrow keys 
-  // - typing a number puts it in the square, backspace clears it
-  // - candidate mode 
-export class PlaysquareComponent implements OnInit {
+  // TODO candidate mode 
+export class PlaysquareComponent {
   @Input() x: number
   @Input() y: number
   @Input() invalid: boolean
   @Input() locked: boolean
+  @Input() selected: boolean
+  @Input() value: SudokuValue
+  @Output() squareEvent = new EventEmitter<{ x: number, y: number }>()
   numbers: number[] = Array.from(Array(9).keys()).map((n) => n + 1)
-  value: SudokuValue
   
   constructor(public sudoku: SudokuService) { }
 
-  ngOnInit() {
-    
+  handleClick() {
+    this.sudoku.highlightX = this.x
+    this.sudoku.highlightY = this.y
   }
 
   getPossibleNumbers() {

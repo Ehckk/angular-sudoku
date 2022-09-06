@@ -9,7 +9,7 @@ export class HeaderComponent implements OnInit {
   @Input() textContent: string
 
   constructor() { }
-
+// TODO: why
   ngOnInit(): void {
   }
 

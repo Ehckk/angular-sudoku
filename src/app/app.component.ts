@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Directive } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title: String = 'sudoku';
-  
+  lightTheme: boolean = document.body.classList.contains('lightTheme') 
+
   constructor() {}
+
+  toggleLightMode() {
+    document.body.classList.toggle('lightTheme')
+    this.lightTheme = !this.lightTheme
+  }
 }

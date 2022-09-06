@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Difficulty, Square, SudokuValue } from "src/types";
+import { Square, SudokuValue } from "src/types";
 
 @Injectable({
 	providedIn: 'root'
@@ -8,9 +8,9 @@ import { Difficulty, Square, SudokuValue } from "src/types";
 export class SudokuService {
 	squares: Square[][] = this.newBoard
 	isWon: boolean
+	auto: boolean = false
 	highlightX: number = -1
 	highlightY: number = -1
-	auto: boolean = false
 
 	get newBoard(): Square[][] {
 		return (Array(9).fill(null).map((row) => Array(9).fill(null)) as SudokuValue[][]).map((row) => row.map((s) => {
@@ -92,118 +92,9 @@ export class SudokuService {
 	}
 
 	setSquare(num: SudokuValue, y: number, x: number) {
-		// TODO reverse mode based on switch or keyboard input
 		this.squares[y][x].value = num
 	}
 	toggleAuto() {
 		this.auto = !this.auto
 	}
-
-	incrementSquare(y: number, x: number) {
-		// TODO reverse mode based on switch or keyboard input
-		let currentValue = this.squares[y][x].value
-		switch (true) {
-			case currentValue === null:
-				this.squares[y][x].value = 1
-				break;
-			case currentValue === 9:
-				this.squares[y][x].value = null
-				break;
-			default:
-				this.squares[y][x].value = (currentValue ?? 1) + 1
-				break;
-		}
-		// this.updateSquares()
-	}
-
-	decrementSquare(y: number, x: number) {
-		// TODO lol
-		let currentValue = this.squares[y][x].value
-		switch (true) {
-			case currentValue === null:
-				this.squares[y][x].value = 9
-				break;
-			case currentValue === 1:
-				this.squares[y][x].value = null
-				break;
-			default:
-				this.squares[y][x].value = (currentValue ?? 9) - 1
-				break;
-		}
-		// this.updateSquares()
-		// if (currentValue === null) {
-		// 	this.squares[y][x].invalid = false
-		// }
-		// this.squares[y][x].invalid = !this.validMove(this.squares[y][x].value, x, y)
-	}
-
-
-
-
-	// async formatBoard(board: Square[][], difficulty: Difficulty): Promise<boolean | void> {
-	// 	// difficulty
-	// 	const boardCopy = [...board]
-	// 	this.squares = boardCopy
-	// 	await this.lockGrids(boardCopy, 0, Difficulty.Easy, Array.from(Array(9).keys()))
-	// 	// await this.resetBoard()
-	// 	console.log('locked');
-	// 	return 
-	// }
-	// async lockGrids(board: Square[][], lockCount: number, difficulty: number, targets: number[]): Promise<boolean | void> {
-	// 	if (lockCount === difficulty * 9) {
-	// 		return true
-	// 	}
-	// 	if (targets.length === 0) {
-	// 		return false
-	// 	}
-	// 	const target = lockCount % 9
-	// 	const targetIndex = targets.splice(Math.floor(Math.random() * targets.length), 1)[0]
-	// 	board[target][targetIndex]		
-	// 	if (board[target][targetIndex].locked) {
-	// 		return await this.lockGrids(board, lockCount, difficulty, targets)
-	// 	}
-	// 	board[target][targetIndex].locked = true
-	// 	if (await this.lockGrids(board, lockCount + 1, difficulty, (lockCount + 1) % 9 === 0 ? Array.from(Array(9).keys()) : targets)) {
-	// 		return true
-	// 	}
-	// 	if (targets.length > 0) {
-	// 		return await this.lockGrids(board, lockCount, difficulty, targets)
-	// 	}
-	// 	return false
-	// }
-	// updateSquares() {
-	// 	this.squares.forEach((row, y) => {
-	// 		row.forEach((square, x) => {
-	// 			if (!square.locked) {
-	// 				if (!square.value) {
-	// 					square.invalid = false
-	// 				} else {
-	// 					square.invalid = !this.validMove(square.value, x, y)
-	// 				}
-	// 			}
-	// 		})
-	// 	})
-	// }
-	// async resetBoard() {
-	// 	this.squares.forEach((row) => {
-	// 		row.forEach((square) => {
-	// 			if (!square.locked) {
-	// 				square.value = null
-	// 				square.invalid = false
-	// 			}
-	// 		})
-	// 	})
-	// }
-	// async giveUp(board: Square[][]) {
-	// 	console.log(board)
-	// 	board.forEach((row, y) => {
-	// 		row.forEach(async (square, x) => {
-	// 			if (!square.locked) {
-	// 				await new Promise(resolve => setTimeout(resolve, 10))
-	// 				this.squares[y][x] = board[y][x]
-	// 			}
-	// 		})
-	// 	})
-	// }
-	// TODO newgame
 }

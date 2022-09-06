@@ -47,7 +47,7 @@
 	border-radius: 2rem;
 	font-size: 1.25rem; 
 	background-color: var(--color-button);
-	color: var(--color-font-2);
+	color: var(--color-font-util);
 	outline: none;
 	user-select: none;
 	display: flex;
