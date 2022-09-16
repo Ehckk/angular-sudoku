@@ -1,14 +1,15 @@
 <main>
-	<header [textContent]="headerText"></header>
-	<div class="viewboard">
-		<div class="viewboard__row" *ngFor="let row of sudoku.squares; let y = index">
-			<!-- viewsquare and playsquare, viewsquare being classic dummy component while playsquare has more convenient options n shit -->
-			<viewsquare *ngFor="let col of row; let x = index" [x]="x" [y]="y" [value]="sudoku.squares[y][x].value"></viewsquare>
+	<div class="container">
+		<div class="viewboard__buttonWrapper">
+			<button class="viewboard__button" [class.disabled]="state === 'Saving' || state === 'Generating' || state === 'Empty'" (click)="clearBoard()">{{ 'Clear' }}</button>
+			<button class="viewboard__button" [class.disabled]="state === 'Saving' || state === 'Generating'" (click)="generateBoard()">{{ state === 'Generating' ? 'Generating...' : 'Generate' }}</button>
+			<button class="viewboard__button" [class.disabled]="state === 'Saving' || state === 'Generating' || state === 'Empty'" (click)="saveBoard()">{{ state === 'Saving' ? 'Saving...' : 'Save' }}</button>
 		</div>
-	</div>
-	<div class="viewboard__buttonWrapper">
-		<button class="viewboard__button" [class.disabled]="state === 'Saving' || state === 'Generating' || state === 'Empty'" (click)="clearBoard()">{{ 'Clear' }}</button>
-		<button class="viewboard__button" [class.disabled]="state === 'Saving' || state === 'Generating'" (click)="generateBoard()">{{ state === 'Generating' ? 'Generating...' : 'Generate' }}</button>
-		<button class="viewboard__button" [class.disabled]="state === 'Saving' || state === 'Generating' || state === 'Empty'" (click)="saveBoard()">{{ state === 'Saving' ? 'Saving...' : 'Save' }}</button>
+		<div class="viewboard">
+			<div class="viewboard__row" *ngFor="let row of sudoku.squares; let y = index">
+				<!-- viewsquare and playsquare, viewsquare being classic dummy component while playsquare has more convenient options n shit -->
+				<viewsquare *ngFor="let col of row; let x = index" [x]="x" [y]="y" [value]="sudoku.squares[y][x].value"></viewsquare>
+			</div>
+		</div>
 	</div>
 </main>

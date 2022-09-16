@@ -1,7 +1,7 @@
 .viewboard__square { 
-	height: 3rem;
-	width: 3rem;
-	border-width: .052rem;
+	height: 3.6rem;
+	width: 3.6rem;
+	border-width: .0625rem;
 	border-style: solid;
 	border-color: var(--color-border);
 	display: flex;
@@ -9,7 +9,7 @@
 	justify-content: center;
 	background-color: var(--color-square-locked);
 	color: var(--color-square-text);
-	font-size: 2rem;
+	font-size: 2.5rem;
 	font-weight: bold;
 	user-select: none; 
 }

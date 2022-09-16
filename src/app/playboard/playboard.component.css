@@ -1,10 +1,9 @@
-.playboard__container {
+.container {
 	margin-top: 2.5rem;
 	min-width: 51.9rem;
 	min-height: 33.9rem;
 	display: flex;
 }
-
 .playboard {
 	min-width: 33.9rem;
 	min-height: 33.9rem;
@@ -13,9 +12,9 @@
 	border-color: var(--color-border-dark);
 	background-color: var(--color-border);
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	flex-direction: column;
 }
 .playboard__row {
 	display: flex;
@@ -23,9 +22,6 @@
 }
 .playboard__row:nth-child(3n + 4) {
 	margin-top: .25rem;
-	/* border-top-width: .25rem;
-	border-top-color: var(--color-border);
-	border-top-style: solid; */
 }
 .playboard.loading {
 	border-color: transparent;
