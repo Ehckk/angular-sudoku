@@ -8,10 +8,10 @@ import { SudokuService } from 'src/services/sudoku.service';
       [class.hidden]="hidden" 
       [class.highlighted]="highlighted"
       [class.selected]="selected" 
-      [class.auto]="sudoku.auto"
-      (click)="handleClick()">{{ candidate }}
+      [class.auto]="sudoku.auto">{{ candidate }}
     </div>
-  `,
+    `,
+    // (click)="handleClick()"
   styleUrls: ['./candidate.component.css']
 })
 export class CandidateComponent {

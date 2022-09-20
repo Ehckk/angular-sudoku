@@ -1,29 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
 	/* TODO rotating square on click */
-	--color-1: hsl(200, 25%, 10%);
-	--color-2: hsl(200, 25%, 13%);
-	--color-3: hsl(200, 25%, 16%);
-	--color-square-text: hsl(200, 25%, 25%);
-	--color-button-disabled: hsl(200, 25%, 30%); 
-	--color-border-dark: hsl(200, 25%, 35%); 
-	--color-button: hsl(200, 25%, 40%); 
-	--color-button-hover: hsl(200, 25%, 45%); 
-	--color-border: hsl(200, 25%, 50%); 
-	--color-candidate: hsl(200, 25%, 60%); 
-	--color-square-locked: hsl(200, 25%, 70%);
-	--color-square-hover: hsl(200, 25%, 75%);
-	--color-square: hsl(200, 25%, 80%); 
-	--color-font-2: hsl(200, 25%, 85%);
-	--color-font-1: hsl(198, 25%, 90%);
-	--color-square-red: hsl(0, 25%, 50%);
-	--color-square-red-hover: hsl(0, 25%, 40%);
-	--color-square-green: hsl(100, 20%, 40%);
+	--blue-12: hsl(200, 25%, 10%);
+	--blue-14: hsl(200, 25%, 12%);
+	--blue-16: hsl(200, 25%, 16%);
+	--blue-25: hsl(200, 25%, 25%);
+	--blue-30: hsl(200, 25%, 30%); 
+	--blue-40: hsl(200, 25%, 40%); 
+	--blue-45: hsl(200, 25%, 45%); 
+	--blue-50: hsl(200, 25%, 50%); 
+	--blue-60: hsl(200, 25%, 60%); 
+	--blue-70: hsl(200, 25%, 70%);
+	--blue-75: hsl(200, 25%, 75%);
+	--blue-80: hsl(200, 25%, 80%);
+	--blue-85: hsl(200, 25%, 85%);
+	--blue-90: hsl(200, 25%, 90%);
+	--red-45: hsl(0, 25%, 45%);
+	--red-35: hsl(0, 25%, 35%);
+	--red-25: hsl(0, 25%, 25%);
+	--green-45: hsl(100, 25%, 45%);
+	--green-35: hsl(100, 25%, 35%);
 }
 
-[theme='light'] {
-	/* TODO: dark mode/light mode switch  */
-	content: '';
+body { 
+	/* TODO 80% saturation */
+	--color-1: var(--blue-12);
+	--color-2: var(--blue-14);
+	--color-3: var(--blue-16);
+	--font-1: var(--blue-90);
+	--font-2: var(--blue-80);
+}
+
+body.lightTheme { 
+	--color-1: var(--blue-75);
+	--color-2: var(--blue-80);
+	--color-3: var(--blue-85);
+	--font-1: var(--blue-12);
+	--font-2: var(--blue-16);
 }
 
 * {

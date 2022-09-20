@@ -1,5 +1,14 @@
 <nav class="navbar">
-	<h1 class="navbar__title">Sudoku</h1>
+	<div class="navbar__header">
+		<h1 class="navbar__title">Sudoku</h1>
+		<div class="navbar__switch" (click)="toggleLightMode()">
+			<svg class="navbar__moon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+				<path d="M 30 15 C 30 60 50 70 85 70 C 40 95 5 60 30 15 Z"/>
+			</svg>
+			<input type="checkbox" class="navbar__track">
+			<span class="navbar__handle" [class.checked]="lightTheme"></span>
+		</div>
+	</div>
 	<ul class="navbar__links">
 		<li class="navbar__item" routerLink="/generate" routerLinkActive="active">Generate</li>
 		<li class="navbar__item" routerLink="/play" routerLinkActive="active">Solve</li>

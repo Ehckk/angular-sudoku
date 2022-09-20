@@ -1,9 +1,7 @@
 <main>
 	<!-- TODO hey you know that one sudoku board with the subbuttons annd tools to cross out numbers yeah put that here lol -->
 	<div class="container">
-		<div class="playboard" 
-			[ngSwitch]="true" 
-			[class.loading]="isFetching">
+		<div class="playboard" [class.loading]="isFetching" [ngSwitch]="true" >
 			<ng-container *ngSwitchCase="isFetching">
 				<span class="playboard__spinner"></span>
 			</ng-container>
@@ -12,9 +10,12 @@
 					<playsquare *ngFor="let col of row; let x = index" 
 						[x]="x" 
 						[y]="y" 
+						[value]="col.value"
+						[selected]="highlightX === x && highlightY === y"
 						[invalid]="col.invalid ?? false" 
 						[locked]="col.locked">
-						[possibleNumbers]="col.possibleNumbers ?? []"
+						[possibleNumbers]="sudoku.getPossibleNumbers(currentBoard, null, y, x)"
+						(selectsquare)="console.log('lol')"
 					</playsquare>
 				</div>
 			</ng-container>
@@ -26,41 +27,9 @@
 			<input type="checkbox" [checked]="sudoku.auto" (click)="sudoku.toggleAuto()">
 			<!-- TODO Make it a toggle switch -->
 		</div>
+		<!-- TODO use random generation to make eahc subgrid have 3/5/7 squares locked on hard/med/easy -->
+		<!-- TODO candidates -->
+		<!-- TODO keyboard support -->
+		<!-- TODO keyboard support (both arrows and numbers )-->
 	</div>
-	<!-- TODO new york times site lol -->
-	<!-- TODO use random generation to make eahc subgrid have 3/5/7 squares locked on hard/med/easy -->
-	<!-- TODO candidates -->
-	<!-- TODO candidates -->
-	<!-- TODO candidates -->
-	<!-- TODO candidates -->
-	<!-- TODO candidates -->
-	<!-- TODO candidates -->
-	<!-- TODO candidates -->
-	<!-- TODO candidates -->
-	<!-- TODO keyboard support -->
-	<!-- TODO keyboard support (both arrows and numbers )-->
-	<!-- TODO make the board larger and move controls to a sidebar for here -->
-	<!-- <ng-container *ngSwitchCase="mode === 'Generate'"> -->
-		
-	<!-- </ng-container> -->
-	<!-- <ng-container *ngSwitchCase="mode === 'Play' && isFetching"> -->
-		<!-- <div class="board__board" [class.loading]="isFetching"> -->
-		<!-- </div> -->
-		<!-- TODO: Give up button -> autocomplete -->
-	<!-- </ng-container>	 -->
-	<!-- <ng-container *ngSwitchCase="mode === 'Play' && !isFetching"> -->
-		<!-- <div class="board__board"> -->
-			<!-- <div class="board__row" *ngFor="let row of sudoku.squares; let y = index"> -->
-				<!-- <square 
-					*ngFor="let col of row; let x = index"
-					(click)="squareClicked(y, x)"
-					[value]="sudoku.squares[y][x].value"
-					[column]="x"
-					[invalid]="sudoku.squares[y][x].invalid"
-					[locked]="sudoku.squares[y][x].locked"
-					[mode]="mode">
-				</square> -->
-			<!-- </div>
-		</div>
-	</ng-container> -->
 </main>
