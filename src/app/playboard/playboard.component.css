@@ -1,31 +1,31 @@
-.playboard__container {
-	margin-top: 2.5rem;
-	min-width: 51.9rem;
-	min-height: 33.9rem;
-	display: flex;
-}
-
-.playboard {
-	min-width: 33.9rem;
-	min-height: 33.9rem;
-	border-width: .5rem;
-	border-style: solid;
-	border-color: var(--color-border-dark);
-	background-color: var(--color-border);
+.container, .playboard, .playboard__row, .playboard__buttonWrapper, .playboard__button {
 	display: flex;
 	justify-content: center;
-	align-items: center;
-	flex-direction: column;
 }
-.playboard__row {
-	display: flex;
-	background-color: var(--color-border);
+.playboard, .playboard__buttonWrapper, .playboard__button {
+	flex-direction: column;
+	align-items: center;
+}
+.playboard, .playboard__buttonWrapper {
+	min-height: 33.9rem;
+}
+.playboard, .playboard__row {
+	background-color: var(--blue-50);
+}
+.playboard, .playboard__spinner {
+	border-style: solid;
+}
+.container {
+	margin-top: 2.5rem;
+	min-width: 51.9rem;
+}
+.playboard {
+	min-width: 33.9rem;
+	border-width: .5rem;
+	border-color: var(--blue-30);
 }
 .playboard__row:nth-child(3n + 4) {
 	margin-top: .25rem;
-	/* border-top-width: .25rem;
-	border-top-color: var(--color-border);
-	border-top-style: solid; */
 }
 .playboard.loading {
 	border-color: transparent;
@@ -33,11 +33,6 @@
 }
 .playboard__buttonWrapper {
 	width: 18rem;
-	height: 32.9rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
 }
 .playboard__button {
 	min-width: 10rem;
@@ -46,34 +41,31 @@
 	border: none;
 	border-radius: 2rem;
 	font-size: 1.25rem; 
-	background-color: var(--color-button);
-	color: var(--color-font-util);
+	background-color: var(--blue-40);
+	color: var(--blue-80);
 	outline: none;
 	user-select: none;
-	display: flex;
-	align-items: center;
-	justify-content: center;
 }
 .playboard__button:hover {
-	background-color: var(--color-button-hover);
+	background-color: var(--blue-45);
+}
+.playboard__button:active, .playboard__button.disabled {
+	background-color: var(--blue-30);
 }
 .playboard__button:active {
-	background-color: var(--color-border);
 	transform: translateY(.25rem);
 }
 .playboard__button.disabled {
-	background-color: var(--color-button-disabled);
 	pointer-events: none;
-	user-select: none;
 }
 .playboard__spinner {
 	height: 9rem;
 	width: 9rem;
 	border-radius: 50%;
-	border-top-color: var(--color-button-hover);
-	border-right-color: var(--color-button-hover);
-	border-bottom-color: var(--color-button-disabled);
-	border-left-color: var(--color-button-disabled);
+	border-top-color: var(--blue-45);
+	border-right-color: var(--blue-45);
+	border-bottom-color: var(--blue-30);
+	border-left-color: var(--blue-30);
 	border-width: 1.5rem;
 	border-style: solid;
 	animation-name: Spin;

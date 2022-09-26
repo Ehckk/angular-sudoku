@@ -1,9 +1,7 @@
 <main>
 	<!-- TODO hey you know that one sudoku board with the subbuttons annd tools to cross out numbers yeah put that here lol -->
-	<div class="playboard__container">
-		<div class="playboard" 
-			[ngSwitch]="true" 
-			[class.loading]="isFetching">
+	<div class="container">
+		<div class="playboard" [class.loading]="isFetching" [ngSwitch]="true" >
 			<ng-container *ngSwitchCase="isFetching">
 				<span class="playboard__spinner"></span>
 			</ng-container>
@@ -13,18 +11,18 @@
 						[x]="x" 
 						[y]="y" 
 						[value]="col.value"
-						[selected]="sudoku.highlightX === x && sudoku.highlightY === y"
+						[selected]="highlightX === x && highlightY === y"
 						[invalid]="col.invalid" 
 						[locked]="col.locked">
-						(squareEvent)="setSelectedSquare(x, y)"
-						[possibleNumbers]="col.possibleNumbers ?? []"
+						[possibleNumbers]="sudoku.getPossibleNumbers(currentBoard, null, y, x)"
+						(selectsquare)="console.log('lol')"
 					</playsquare>
 				</div>
 			</ng-container>
 		</div>
 		<div class="playboard__buttonWrapper">
 			<div class="playboard__button" [class.disabled]="isSolving || isFetching" (click)="clearBoard()">{{ 'Reset' }}</div>
-			<div class="playboard__button" [class.disabled]="isSolving || isFetching" (click)="getPlayableBoardFromDatabase()">{{ 'New Game' }}</div>
+			<div class="playboard__button" [class.disabled]="isSolving || isFetching" (click)="getBoard()">{{ 'New Game' }}</div>
 			<div class="playboard__button" [class.disabled]="isSolving || isFetching || isWin" (click)="solveBoard()">{{ isSolving ? 'Solving...' : 'Give Up' }}</div>
 			<!-- TODO 🥶☝ -->
 			<!-- TODO: <input type="checkbox" [checked]="sudoku.auto" (click)="sudoku.toggleAuto()"> -->
@@ -33,7 +31,9 @@
 			<!-- TODO have switch component toggle a dependency injected variable because shared state  -->
 			<!-- TODO: seperate the playable board logic from the generated board logic -->
 		</div>
+		<!-- TODO use random generation to make eahc subgrid have 3/5/7 squares locked on hard/med/easy -->
+		<!-- TODO candidates -->
+		<!-- TODO keyboard support -->
+		<!-- TODO keyboard support (both arrows and numbers )-->
 	</div>
-	<!-- TODO use random generation to make eahc subgrid have 3/5/7 squares locked on hard/med/easy -->
-	<!-- TODO make the board larger and move controls to a sidebar for here -->
 </main>

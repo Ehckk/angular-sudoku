@@ -7,7 +7,6 @@ import { AngularFireModule } from '@angular/fire/compat'
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
-import { HeaderComponent } from './header/header.component';
 import { ViewboardComponent } from './viewboard/viewboard.component';
 import { PlayboardComponent } from './playboard/playboard.component';
 import { ViewsquareComponent } from './viewsquare/viewsquare.component';
@@ -17,7 +16,6 @@ import { CandidateComponent } from './candidate/candidate.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     ViewboardComponent,
     PlayboardComponent,
     ViewsquareComponent,

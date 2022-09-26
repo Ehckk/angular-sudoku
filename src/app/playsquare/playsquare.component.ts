@@ -7,29 +7,18 @@ import { SudokuValue } from 'src/types';
   templateUrl: './playsquare.component.html',
   styleUrls: ['./playsquare.component.css']
 })
-  // TODO candidate mode 
+  // TODO
+  // - candidate mode 
 export class PlaysquareComponent {
   @Input() x: number
   @Input() y: number
-  @Input() invalid: boolean
-  @Input() locked: boolean
-  @Input() selected: boolean
   @Input() value: SudokuValue
-  @Output() squareEvent = new EventEmitter<{ x: number, y: number }>()
-  numbers: number[] = Array.from(Array(9).keys()).map((n) => n + 1)
+  @Input() invalid: boolean
+  @Input() selected: boolean
+  @Input() locked: boolean
+  @Input() possibleNumbers: number[] 
+  @Output('squareselect') newClickEvent = new EventEmitter<{ x: number, y: number }>()
+  numbers = Array.from(Array(9).keys()).map((n) => n + 1)
   
   constructor(public sudoku: SudokuService) { }
-
-  handleClick() {
-    this.sudoku.highlightX = this.x
-    this.sudoku.highlightY = this.y
-  }
-
-  getPossibleNumbers() {
-    return this.numbers.filter((num) => this.sudoku.validMove(num, this.x, this.y))
-  }
-
-  toggleCandidate(num: number) {
-    return !this.getPossibleNumbers().some((n) => n === num)
-  } 
 }

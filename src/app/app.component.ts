@@ -7,12 +7,12 @@ import { Component, Directive } from '@angular/core';
 })
 export class AppComponent {
   title: String = 'sudoku';
-  lightTheme: boolean = document.body.classList.contains('lightTheme') 
-
+  lightTheme: boolean = document.body.classList.contains('lightTheme')
+  
   constructor() {}
 
   toggleLightMode() {
     document.body.classList.toggle('lightTheme')
-    this.lightTheme = !this.lightTheme
+    this.lightTheme = document.body.classList.contains('lightTheme')
   }
 }

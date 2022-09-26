@@ -1,29 +1,35 @@
+.container {
+	margin-top: 2.5rem;
+	min-width: 51.9rem;
+	min-height: 33.9rem;
+	display: flex;
+}
 .viewboard {
-	min-height: 27rem;
+	min-width: 33.9rem;
+	min-height: 33.9rem;
 	border-width: .5rem;
 	border-style: solid;
-	border-color: var(--color-border-dark);
-	background-color: var(--color-border);
+	border-color: var(--blue-30);
+	background-color: var(--blue-50);
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 	justify-content: center;
+	align-items: center;
 }
-
 .viewboard__row {
 	display: flex;
-	background-color: var(--color-border);
+	background-color: var(--blue-50);
 }
-
 .viewboard__row:nth-child(3n + 4) {
-	margin-top: .208rem;
+	margin-top: .25rem;
 }
-
 .viewboard__buttonWrapper {
-	width: 100%;
+	width: 18rem;
+	height: 32.9rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
 }
 .viewboard__button {
 	min-width: 10rem;
@@ -32,23 +38,22 @@
 	border: none;
 	border-radius: 2rem;
 	font-size: 1.25rem; 
-	background-color: var(--color-button);
-	color: var(--color-font-util);
+	background-color: var(--blue-40);
+	color: var(--blue-80);
 	outline: none;
-	user-select: none;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 .viewboard__button:hover {
-	background-color: var(--color-button-hover);
+	background-color: var(--blue-45);
 }
+.viewboard__button:active, .viewboard__button.disabled {
+	background-color: var(--blue-30);
+} 
 .viewboard__button:active {
-	background-color: var(--color-border);
 	transform: translateY(.25rem);
 }
 .viewboard__button.disabled {
-	background-color: var(--color-button-disabled);
 	pointer-events: none;
-	user-select: none;
 }

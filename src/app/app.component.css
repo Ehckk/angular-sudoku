@@ -1,67 +1,72 @@
 .navbar {
-	color: var(--color-font-1);
+	color: var(--font-1);
+}
+.navbar__header, .navbar__links {
+	width: 100%;
+	padding: .75rem;
+	display: flex;
 }
 .navbar__header {
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
 	align-items: center;
+	justify-content: space-between;
 	background-color: var(--color-1);
 }
 .navbar__title {
-	padding: .75rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	font-size: 2.5rem;
 }
 .navbar__links {
-	height: 3rem;
-	width: 100%;
-	background-color: var(--color-2);
-	font-size: 1.25rem;
-	font-weight: bold;
-	display: flex;
-	align-items: center;
 	justify-content: space-evenly;
 	user-select: none;
 }
-.navbar__item {
-	list-style: none;
-	font-size: 1.25rem;
+.navbar__item, .navbar__handle {
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
 }
-
+.navbar__item {
+	color: var(--font-2);
+	font-size: 1.67rem;
+	font-weight: bold;
+	list-style: none;
+	text-decoration-style: solid;
+	text-decoration-line: underline;
+	text-decoration-color: transparent;
+	text-underline-offset: .125em;
+	transition-property: text-decoration-color, color;
+}
+.navbar__item.active {
+	text-decoration-color: var(--font-2);
+	pointer-events: none;
+}
+/* TODO pseudoelements */
+.navbar__item:hover {
+	color: var(--font-1);
+	text-decoration-color: var(--font-1);
+}
 .navbar__switch {
 	margin: .75rem;
 	display: flex;
 	align-items: center;
 	text-align: center;
 }
-
 .navbar__track {
 	appearance: none;
 	height: 2.5rem;
 	width: 5rem;
 	border-radius: 1.25rem;
-	background-color: var(--color-font-2);
+	background-color: var(--font-1);
 }
-
 .navbar__handle {
 	height: 2rem;
 	width: 2rem;
 	border-radius: 50%;
-	right: 0;
-	transform: translateX(-1rem);
-	background-color: var(--color-border);
-	position: absolute;
-	transition: transform .25s ease-in-out;
+	background-color: var(--color-2);
+	transform: translateX(-110%);
+	transition-property: transform;
 }
-
 .navbar__handle.checked {
-	transform: translateX(-3.5rem);
+	transform: translateX(-240%);
 }
-
-.navbar__moonLogo {
-	fill: var(--color-font-2);
+.navbar__moon {
+	fill: var(--font-1);
 	width: 2.5rem;
 }

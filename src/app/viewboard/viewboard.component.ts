@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { SudokuService } from 'src/services/sudoku.service';
-import { ViewBoardStates } from 'src/types';
+import { Square, ViewBoardStates } from 'src/types';
 
 @Component({
   selector: 'viewboard',
@@ -10,28 +10,37 @@ import { ViewBoardStates } from 'src/types';
 })
 export class ViewboardComponent implements OnInit {
   headerText: string = "Generate"
-  state: string = ViewBoardStates.Empty
+  state: string
+	board: Square[][]
 
   constructor(public sudoku: SudokuService, private db: AngularFireDatabase) { }
 
   ngOnInit(): void {
-
+    this.emptyBoard()
   }
 
-  clearBoard(): void {
-    this.sudoku.clearBoard()
+  clearBoard() { 
+    this.board = this.sudoku.newBoard
+  }
+
+  emptyBoard(): void {
     this.state = ViewBoardStates.Empty
+    this.clearBoard()
   }
 
-  generateBoard(): void {
+  async generateBoard() {
+    this.clearBoard()
     this.state = ViewBoardStates.Generating
-    this.sudoku.generateBoard().then((result) => this.state = result ? ViewBoardStates.Full : ViewBoardStates.None)
+    const result = await this.sudoku.addNumbersToRow(this.board, this.sudoku.getShuffledNumbers(), 0, 0) ?? false
+    console.log(`${result ? `Successfully generated` : `Failed to generate`} board`)
+    this.state = result ? ViewBoardStates.Full : ViewBoardStates.None
   }
 
   saveBoard(): void {
+    if (ViewBoardStates.None) return // TODO pop up
     this.state = ViewBoardStates.Saving
     const ref = this.db.list('boards')
-    ref.push(this.sudoku.squares).then(() => {
+    ref.push(this.board).then(() => {
       this.state = ViewBoardStates.Full
     }).catch((error) => {
       console.error(error);
