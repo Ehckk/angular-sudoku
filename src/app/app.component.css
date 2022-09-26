@@ -16,7 +16,6 @@
 }
 .navbar__links {
 	justify-content: space-evenly;
-	background-color: var(--color-2);
 	user-select: none;
 }
 .navbar__item, .navbar__handle {

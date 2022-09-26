@@ -48,7 +48,21 @@ body.lightTheme {
 }
 
 body {
+	--color-1: hsl(200, 25%, 10%);
+	--color-2: hsl(200, 25%, 13%);
+	--color-3: hsl(200, 25%, 16%);
+	--color-font-1: hsl(198, 25%, 90%);
+	--color-font-2: hsl(198, 25%, 80%);
 	background-color: var(--color-3);
+}
+
+body.lightTheme {
+	--color-3: hsl(200, 25%, 20%);
+	--color-1: hsl(200, 25%, 75%);
+	--color-2: hsl(200, 25%, 80%);
+	--color-3: hsl(200, 25%, 85%);
+	--color-font-1: hsl(198, 25%, 15%);
+	--color-font-2: hsl(198, 25%, 25%);
 }
 
 main {

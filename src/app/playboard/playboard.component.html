@@ -21,11 +21,15 @@
 			</ng-container>
 		</div>
 		<div class="playboard__buttonWrapper">
-			<div class="playboard__button" [class.disabled]="isSolving || isFetching || isWin">{{ 'Reset' }}</div>
-			<div class="playboard__button" [class.disabled]="isSolving || isFetching">{{ 'New Game' }}</div>
-			<div class="playboard__button" [class.disabled]="isSolving || isFetching || isWin">{{ isSolving ? 'Solving...' : 'Give Up' }}</div>
-			<input type="checkbox" [checked]="sudoku.auto" (click)="sudoku.toggleAuto()">
-			<!-- TODO Make it a toggle switch -->
+			<div class="playboard__button" [class.disabled]="isSolving || isFetching" (click)="clearBoard()">{{ 'Reset' }}</div>
+			<div class="playboard__button" [class.disabled]="isSolving || isFetching" (click)="getPlayableBoardFromDatabase()">{{ 'New Game' }}</div>
+			<div class="playboard__button" [class.disabled]="isSolving || isFetching || isWin" (click)="solveBoard()">{{ isSolving ? 'Solving...' : 'Give Up' }}</div>
+			<!-- TODO 🥶☝ -->
+			<!-- TODO: <input type="checkbox" [checked]="sudoku.auto" (click)="sudoku.toggleAuto()"> -->
+			<!-- TODO: <input type="checkbox" [checked]="candidateMode" (click)="toggleMode()"> -->
+			<!-- TODO extract to switch component -->
+			<!-- TODO have switch component toggle a dependency injected variable because shared state  -->
+			<!-- TODO: seperate the playable board logic from the generated board logic -->
 		</div>
 		<!-- TODO use random generation to make eahc subgrid have 3/5/7 squares locked on hard/med/easy -->
 		<!-- TODO candidates -->

@@ -1,22 +1,24 @@
-import { Component, Directive, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Router } from '@angular/router';
 import { SudokuService } from 'src/services/sudoku.service';
-import { CandidateSquare, Square, SudokuValue } from 'src/types';
+import { CandidateSquare, Square, SudokuValue, SudokuValue } from 'src/types';
 @Component({
   selector: 'playboard',
   templateUrl: './playboard.component.html',
   styleUrls: ['./playboard.component.css']
 })
 export class PlayboardComponent implements OnInit {
+  initialBoard: Square[][]
   currentBoard: CandidateSquare[][]
   initialBoard: Square[][]
   highlightX: number = -1
 	highlightY: number = -1
   headerText: string
-  isSolving: boolean
+  isSolving: boolean = false
   isFetching: boolean
-  isWin: boolean
+  isWin: boolean = false
+  candidateMode: boolean = false
 
   constructor (public sudoku: SudokuService, private db: AngularFireDatabase, public router: Router) { }
   
@@ -72,6 +74,9 @@ export class PlayboardComponent implements OnInit {
       })
     })
   }
+  // toggleMode() {
+  //   this.candidateMode = !this.candidateMode
+  // }
 
   async solveBoard() {
     this.highlightX = -1
