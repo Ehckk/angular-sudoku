@@ -8,8 +8,8 @@ import { CandidateSquare, Difficulty, Square, SudokuValue } from "src/types";
 export class SudokuService {
 	isWon: boolean
 	auto: boolean = false
-	highlightX
-	highlightY // Move it back here
+	// highlightX
+	// highlightY // Move it back here
 
 	get newBoard(): Square[][] {
 		return (Array(9).fill(null).map((row) => Array(9).fill(null)) as SudokuValue[][]).map((row) => row.map((s) => {

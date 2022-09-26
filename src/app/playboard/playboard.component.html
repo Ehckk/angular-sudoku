@@ -12,7 +12,7 @@
 						[y]="y" 
 						[value]="col.value"
 						[selected]="highlightX === x && highlightY === y"
-						[invalid]="col.invalid ?? false" 
+						[invalid]="col.invalid" 
 						[locked]="col.locked">
 						[possibleNumbers]="sudoku.getPossibleNumbers(currentBoard, null, y, x)"
 						(selectsquare)="console.log('lol')"
@@ -22,7 +22,7 @@
 		</div>
 		<div class="playboard__buttonWrapper">
 			<div class="playboard__button" [class.disabled]="isSolving || isFetching" (click)="clearBoard()">{{ 'Reset' }}</div>
-			<div class="playboard__button" [class.disabled]="isSolving || isFetching" (click)="getPlayableBoardFromDatabase()">{{ 'New Game' }}</div>
+			<div class="playboard__button" [class.disabled]="isSolving || isFetching" (click)="getBoard()">{{ 'New Game' }}</div>
 			<div class="playboard__button" [class.disabled]="isSolving || isFetching || isWin" (click)="solveBoard()">{{ isSolving ? 'Solving...' : 'Give Up' }}</div>
 			<!-- TODO 🥶☝ -->
 			<!-- TODO: <input type="checkbox" [checked]="sudoku.auto" (click)="sudoku.toggleAuto()"> -->
