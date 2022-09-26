@@ -2,7 +2,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Router } from '@angular/router';
 import { SudokuService } from 'src/services/sudoku.service';
-import { CandidateSquare, Square, SudokuValue, SudokuValue } from 'src/types';
+import { CandidateSquare, Square, SudokuValue } from 'src/types';
 @Component({
   selector: 'playboard',
   templateUrl: './playboard.component.html',
@@ -11,7 +11,6 @@ import { CandidateSquare, Square, SudokuValue, SudokuValue } from 'src/types';
 export class PlayboardComponent implements OnInit {
   initialBoard: Square[][]
   currentBoard: CandidateSquare[][]
-  initialBoard: Square[][]
   highlightX: number = -1
 	highlightY: number = -1
   headerText: string
