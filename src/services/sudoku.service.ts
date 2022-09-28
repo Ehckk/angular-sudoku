@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { CandidateSquare, Difficulty, Square, SudokuValue } from "src/types";
+import { Square, SudokuValue } from "src/types";
 
 @Injectable({
 	providedIn: 'root'
@@ -80,7 +80,7 @@ export class SudokuService {
 			return false
 		}
 		board[y][x].value = newNumbers.splice(0, 1)[0]
-		await new Promise(resolve => setTimeout(resolve, 25))
+		await new Promise(resolve => setTimeout(resolve, 10))
 		if (y === 8 && x === 8) {
 			return true
 		}

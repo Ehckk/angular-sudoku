@@ -11,8 +11,8 @@ import { CandidateSquare, Square, SudokuValue } from 'src/types';
 export class PlayboardComponent implements OnInit {
   initialBoard: Square[][]
   currentBoard: CandidateSquare[][]
-  highlightX: number = -1
-	highlightY: number = -1
+  highlightX: number = 0
+	highlightY: number = 0
   headerText: string
   isSolving: boolean = false
   isFetching: boolean
@@ -90,7 +90,7 @@ export class PlayboardComponent implements OnInit {
     if (!this.currentBoard[y][x].locked) {
       if (currentNum !== targetNum) {
         this.currentBoard[y][x].value = currentNum === 9 ? 1 : (currentNum ?? 0) + 1
-        await new Promise(resolve => setTimeout(resolve, 25))
+        await new Promise(resolve => setTimeout(resolve, 10))
         if (this.currentBoard[y][x].value !== targetNum) {
           return this.solveSquare(x, y, this.currentBoard[y][x].value, targetNum)
         }
@@ -113,32 +113,32 @@ export class PlayboardComponent implements OnInit {
 
   @HostListener('window:keydown', ['$event'])
   onKeyDown({ key }: KeyboardEvent) {
-    if (!this.isFetching) {
-      switch (key) {
-        case 'ArrowUp':
-          this.highlightY = this.highlightY === -1 ? 0 : this.highlightY === 0 ? 8 : this.highlightY - 1
-          break
-        case 'ArrowDown':
-          this.highlightY = this.highlightY === -1 ? 0 : this.highlightY === 8 ? 0 : this.highlightY + 1
-          break
-        case 'ArrowRight':
-          this.highlightX = this.highlightX === -1 ? 0 : this.highlightX === 8 ? 0 : this.highlightX + 1
-          break
-        case 'ArrowLeft':
-          this.highlightX = this.highlightX === -1 ? 0 : this.highlightX === 0 ? 8 : this.highlightX - 1
-          break
-        case 'Backspace':
-          this.currentBoard[this.highlightY][this.highlightX].value = null
-          this.updateLegalMoves(this.highlightY, this.highlightX)
-          break
-        default:
-          const numInput = parseInt(key)
-          if (isNaN(numInput) || numInput === 0) return
-          // Candidate Mode
-          console.log(numInput)
-          this.currentBoard[this.highlightY][this.highlightX].value = numInput
-          this.updateLegalMoves(this.highlightY, this.highlightX)
-      }
+    if (this.isFetching) return
+    switch (key) {
+      case 'ArrowUp':
+        this.highlightY = this.highlightY === -1 ? 0 : this.highlightY === 0 ? 8 : this.highlightY - 1
+        break
+      case 'ArrowDown':
+        this.highlightY = this.highlightY === -1 ? 0 : this.highlightY === 8 ? 0 : this.highlightY + 1
+        break
+      case 'ArrowRight':
+        this.highlightX = this.highlightX === -1 ? 0 : this.highlightX === 8 ? 0 : this.highlightX + 1
+        break
+      case 'ArrowLeft':
+        this.highlightX = this.highlightX === -1 ? 0 : this.highlightX === 0 ? 8 : this.highlightX - 1
+        break
+      case 'Backspace':
+        this.currentBoard[this.highlightY][this.highlightX].value = null
+        this.updateLegalMoves(this.highlightY, this.highlightX)
+        break
+      default:
+        if (this.currentBoard[this.highlightY][this.highlightX].locked) return
+        const numInput = parseInt(key)
+        if (isNaN(numInput) || numInput === 0) return
+        // Candidate Mode
+        console.log(numInput)
+        this.currentBoard[this.highlightY][this.highlightX].value = numInput
+        this.updateLegalMoves(this.highlightY, this.highlightX)
     }
   }
 }

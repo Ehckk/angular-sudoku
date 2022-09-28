@@ -8,6 +8,7 @@ import { Component, Directive } from '@angular/core';
 export class AppComponent {
   title: String = 'sudoku';
   lightTheme: boolean = document.body.classList.contains('lightTheme')
+  gameMode: 'GENERATE' | 'PLAY' = 'GENERATE'
   
   constructor() {}
 

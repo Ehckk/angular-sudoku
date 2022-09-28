@@ -1,8 +1,9 @@
 <div class="playboard__square"
-	[class.borderL]="x === 3 || x == 6"
 	[class.selected]="selected"  
 	[class.locked]="locked"  
 	[class.unfilled]="value === null"
+	[class.mx]="x > 0 && x % 3 === 0" 
+	[class.my]="y > 0 && y % 3 === 0"
 	(click)="newClickEvent.emit({ x, y })"
 	>{{ value }}
 	<ng-container *ngIf="value === null && (selected || sudoku.auto)">

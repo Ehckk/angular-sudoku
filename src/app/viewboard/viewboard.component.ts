@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { SudokuService } from 'src/services/sudoku.service';
 import { Square, ViewBoardStates } from 'src/types';
@@ -9,7 +9,7 @@ import { Square, ViewBoardStates } from 'src/types';
   styleUrls: ['./viewboard.component.css']
 })
 export class ViewboardComponent implements OnInit {
-  headerText: string = "Generate"
+  @Input() gameMode: 'GENERATE' | 'PLAY'
   state: string
 	board: Square[][]
 

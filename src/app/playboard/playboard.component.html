@@ -6,24 +6,28 @@
 				<span class="playboard__spinner"></span>
 			</ng-container>
 			<ng-container *ngSwitchCase="!isFetching">
-				<div class="playboard__row" *ngFor="let row of currentBoard; let y = index">
-					<playsquare *ngFor="let col of row; let x = index" 
-						[x]="x" 
-						[y]="y" 
-						[value]="col.value"
-						[selected]="highlightX === x && highlightY === y"
-						[invalid]="col.invalid" 
-						[locked]="col.locked">
-						[possibleNumbers]="sudoku.getPossibleNumbers(currentBoard, null, y, x)"
-						(selectsquare)="console.log('lol')"
-					</playsquare>
-				</div>
+				<ng-container *ngFor="let row of currentBoard; let y = index">
+					<!-- viewsquare and playsquare, viewsquare being classic dummy component while playsquare has more convenient options n shit -->
+					<ng-container *ngFor="let col of row; let x = index">
+						<playsquare 
+							[x]="x" 
+							[y]="y" 
+							[value]="col.value"
+							[selected]="highlightX === x && highlightY === y"
+							[invalid]="col.invalid" 
+							[locked]="col.locked"
+							[possibleNumbers]="sudoku.getPossibleNumbers(currentBoard, null, y, x)"
+							>
+							<!-- (selectsquare)="console.log('lol')" -->
+						</playsquare>
+					</ng-container>
+				</ng-container>				
 			</ng-container>
 		</div>
-		<div class="playboard__buttonWrapper">
-			<div class="playboard__button" [class.disabled]="isSolving || isFetching" (click)="clearBoard()">{{ 'Reset' }}</div>
-			<div class="playboard__button" [class.disabled]="isSolving || isFetching" (click)="getBoard()">{{ 'New Game' }}</div>
-			<div class="playboard__button" [class.disabled]="isSolving || isFetching || isWin" (click)="solveBoard()">{{ isSolving ? 'Solving...' : 'Give Up' }}</div>
+		<div class="buttonWrapper">
+			<button [class.disabled]="isSolving || isFetching" (click)="clearBoard()">{{ 'Reset' }}</button>
+			<button [class.disabled]="isSolving || isFetching" (click)="getBoard()">{{ 'New Game' }}</button>
+			<button [class.disabled]="isSolving || isFetching || isWin" (click)="solveBoard()">{{ isSolving ? 'Solving...' : 'Give Up' }}</button>
 			<!-- TODO 🥶☝ -->
 			<!-- TODO: <input type="checkbox" [checked]="sudoku.auto" (click)="sudoku.toggleAuto()"> -->
 			<!-- TODO: <input type="checkbox" [checked]="candidateMode" (click)="toggleMode()"> -->

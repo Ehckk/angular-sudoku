@@ -1,70 +1,35 @@
-.container, .playboard, .playboard__row, .playboard__buttonWrapper, .playboard__button {
-	display: flex;
-	justify-content: center;
-}
-.playboard, .playboard__buttonWrapper, .playboard__button {
-	flex-direction: column;
-	align-items: center;
-}
-.playboard, .playboard__buttonWrapper {
-	min-height: 33.9rem;
-}
-.playboard, .playboard__row {
-	background-color: var(--blue-50);
-}
-.playboard, .playboard__spinner {
-	border-style: solid;
-}
 .container {
-	min-width: 51.9rem;
+	min-width: 50rem;
+	min-height: 32rem;
+	display: flex;
 }
 .playboard {
-	min-width: 33.9rem;
+	min-width: 32rem;
+	min-height: 32rem;
 	border-width: .5rem;
-	border-color: var(--blue-30);
-}
-.playboard__row:nth-child(3n + 4) {
-	margin-top: .25rem;
+	border-style: solid;
+	border-color: var(--blue-600);
+	background-color: var(--blue-400);
+	display: grid;
+	grid-template-columns: repeat(3, 1fr) 1.1fr repeat(2, 1fr) 1.1fr repeat(2, 1fr);
+	grid-template-rows: repeat(3, 1fr) 1.1fr repeat(2, 1fr) 1.1fr repeat(2, 1fr);
+	border-width: .5rem;
 }
 .playboard.loading {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	border-color: transparent;
 	background-color: transparent;
-}
-.playboard__buttonWrapper {
-	width: 18rem;
-}
-.playboard__button {
-	min-width: 10rem;
-	min-height: 3rem;
-	margin: 1rem;
-	border: none;
-	border-radius: 2rem;
-	font-size: 1.25rem; 
-	background-color: var(--blue-40);
-	color: var(--blue-80);
-	outline: none;
-	user-select: none;
-}
-.playboard__button:hover {
-	background-color: var(--blue-45);
-}
-.playboard__button:active, .playboard__button.disabled {
-	background-color: var(--blue-30);
-}
-.playboard__button:active {
-	transform: translateY(.25rem);
-}
-.playboard__button.disabled {
-	pointer-events: none;
 }
 .playboard__spinner {
 	height: 9rem;
 	width: 9rem;
 	border-radius: 50%;
-	border-top-color: var(--blue-45);
-	border-right-color: var(--blue-45);
-	border-bottom-color: var(--blue-30);
-	border-left-color: var(--blue-30);
+	border-top-color: var(--blue-400);
+	border-right-color: var(--blue-400);
+	border-bottom-color: var(--blue-500);
+	border-left-color: var(--blue-500);
 	border-width: 1.5rem;
 	border-style: solid;
 	animation-name: Spin;

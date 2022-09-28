@@ -1,43 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
 	/* TODO rotating square on click */
-	--blue-12: hsl(200, 25%, 10%);
-	--blue-14: hsl(200, 25%, 12%);
-	--blue-16: hsl(200, 25%, 16%);
-	--blue-25: hsl(200, 25%, 25%);
-	--blue-30: hsl(200, 25%, 30%); 
-	--blue-40: hsl(200, 25%, 40%); 
-	--blue-45: hsl(200, 25%, 45%); 
-	--blue-50: hsl(200, 25%, 50%); 
-	--blue-60: hsl(200, 25%, 60%); 
-	--blue-70: hsl(200, 25%, 70%);
-	--blue-75: hsl(200, 25%, 75%);
-	--blue-80: hsl(200, 25%, 80%);
-	--blue-85: hsl(200, 25%, 85%);
-	--blue-90: hsl(200, 25%, 90%);
-	--red-45: hsl(0, 25%, 45%);
-	--red-35: hsl(0, 25%, 35%);
-	--red-25: hsl(0, 25%, 25%);
-	--green-45: hsl(100, 25%, 45%);
-	--green-35: hsl(100, 25%, 35%);
+	--blue-100: hsl(180, 21%, 86%);
+	--blue-200: hsl(180, 22%, 72%);
+	--blue-300: hsl(180, 21%, 58%);
+	--blue-400: hsl(180, 28%, 44%);
+	--blue-500: hsl(180, 50%, 30%);
+	--blue-600: hsl(180, 51%, 24%);
+	--blue-700: hsl(180, 50%, 18%);
+	--blue-800: hsl(180, 51%, 12%);
+	--blue-900: hsl(180, 48%, 6%);
+	--grey-100: hsl(200, 10%, 90%);
+	--grey-200: hsl(200, 10%, 85%);
+	--grey-300: hsl(202, 11%, 80%);
+	--grey-400: hsl(201, 11%, 75%);
+	--grey-500: hsl(201, 11%, 50%);
+	--grey-600: hsl(201, 11%, 40%);
+	--grey-700: hsl(202, 11%, 20%);
+	--grey-800: hsl(200, 10%, 15%);
+	--grey-900: hsl(200, 10%, 10%);
+	--red-400: hsl(0, 60%, 60%);
+	--red-500: hsl(0, 60%, 50%);
+	--red-600: hsl(0, 60%, 40%);
+	--green-500: hsl(100, 60%, 50%);
+	--green-600: hsl(100, 60%, 40%);
 }
 
-body { 
-	/* TODO 80% saturation */
-	--color-1: var(--blue-12);
-	--color-2: var(--blue-14);
-	--color-3: var(--blue-16);
-	--font-1: var(--blue-90);
-	--font-2: var(--blue-80);
-}
-
-body.lightTheme { 
-	--color-1: var(--blue-75);
-	--color-2: var(--blue-80);
-	--color-3: var(--blue-85);
-	--font-1: var(--blue-12);
-	--font-2: var(--blue-16);
-}
 
 * {
 	margin: 0;
@@ -47,22 +35,28 @@ body.lightTheme {
 	user-select: none;
 }
 
-body {
-	--color-1: hsl(200, 25%, 10%);
-	--color-2: hsl(200, 25%, 13%);
-	--color-3: hsl(200, 25%, 16%);
-	--color-font-1: hsl(198, 25%, 90%);
-	--color-font-2: hsl(198, 25%, 80%);
+html, body {
+	height: 100%;
+}
+
+body { 
+	--color-1: var(--grey-900);
+	--color-2: var(--grey-800);
+	--color-3: var(--grey-700);
+	--font-1: var(--blue-100);
+	--font-2: var(--blue-300);
+	--font-3: var(--blue-200);
+	--font-4: var(--grey-100);
 	background-color: var(--color-3);
 }
 
-body.lightTheme {
-	--color-3: hsl(200, 25%, 20%);
-	--color-1: hsl(200, 25%, 75%);
-	--color-2: hsl(200, 25%, 80%);
-	--color-3: hsl(200, 25%, 85%);
-	--color-font-1: hsl(198, 25%, 15%);
-	--color-font-2: hsl(198, 25%, 25%);
+body.lightTheme { 
+	--color-1: var(--grey-200);
+	--color-2: var(--grey-300);
+	--color-3: var(--grey-400);
+	--font-1: var(--blue-900);
+	--font-2: var(--blue-700);
+	--font-3: var(--blue-800);
 }
 
 main {
@@ -72,4 +66,42 @@ main {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+}
+button {
+	min-width: 10rem;
+	min-height: 3rem;
+	margin: 1rem;
+	border: none;
+	border-radius: 2rem;
+	font-size: 1.25rem; 
+	background-color: var(--blue-500);
+	color: var(--grey-100);
+	outline: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: inset 0 1px 0 var(--blue-400), 0 1px 3px hsla(0, 0%, 0%, .5);
+}
+button:hover {
+	background-color: var(--blue-400);
+	box-shadow: inset 0 1px 0 var(--blue-300), 0 1px 3px hsla(0, 0%, 0%, .5);
+}
+button:active, button.disabled {
+	background-color: var(--blue-600);
+	box-shadow: none;
+
+} 
+button:active {
+	transform: translateY(.25rem);
+}
+button.disabled {
+	pointer-events: none;
+}
+.buttonWrapper {
+	width: 18rem;
+	height: 32rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
