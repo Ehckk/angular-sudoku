@@ -8,15 +8,11 @@ import { SudokuValue } from "src/types/SudokuValue";
 })
 
 export class SudokuService {
-	// highlightX
-	// highlightY // Move it back here
-
 	get newBoard(): Square[][] {
 		return (Array(9).fill(null).map((row) => Array(9).fill(null)) as SudokuValue[][]).map((row) => row.map((s) => {
 			return { value: s }
 		}))
 	}
-
 	getShuffledNumbers(): number[] {
 		const numbers = Array.from(Array(9).keys()).map((n) => n + 1)
 		const shuffledNumbers: number[] = []
