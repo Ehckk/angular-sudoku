@@ -1,9 +1,4 @@
-.container {
-	min-width: 50rem;
-	min-height: 32rem;
-	display: flex;
-}
-.playboard {
+.board {
 	min-width: 32rem;
 	min-height: 32rem;
 	border-width: .5rem;
@@ -15,14 +10,14 @@
 	grid-template-rows: repeat(3, 1fr) 1.1fr repeat(2, 1fr) 1.1fr repeat(2, 1fr);
 	border-width: .5rem;
 }
-.playboard.loading {
+.board.loading {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	border-color: transparent;
 	background-color: transparent;
 }
-.playboard__spinner {
+.board__spinner {
 	height: 9rem;
 	width: 9rem;
 	border-radius: 50%;

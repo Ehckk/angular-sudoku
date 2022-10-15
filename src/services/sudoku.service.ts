@@ -1,13 +1,13 @@
 import { Injectable } from "@angular/core";
-import { Square, SudokuValue } from "src/types";
+import { CandidateSquare } from "src/types/CandidateSquare";
+import { Square } from "src/types/Square";
+import { SudokuValue } from "src/types/SudokuValue";
 
 @Injectable({
 	providedIn: 'root'
 })
 
 export class SudokuService {
-	isWon: boolean
-	auto: boolean = false
 	// highlightX
 	// highlightY // Move it back here
 
@@ -25,27 +25,14 @@ export class SudokuService {
 		}
 		return shuffledNumbers
 	}
-
 	isMoveLegal(sq1: Square, i1: number, squares: Square[]) {
 		if (sq1.value === null) return true
-		return squares.some((sq2, i2) => {
-			if (i1 === i2) return true
-			return sq1.value === sq2.value
-		})
+		return squares.some((sq2, i2) => i1 === i2 ? true : sq1.value === sq2.value)
 	}
-
-	getRow(board: Square[][], y: number) {
-		return board[y]
-	}
-
-	getCol(board: Square[][], x: number) {
-		return board.map((row) => row[x])
-	}
-
-	getSubGrid(board: Square[][], x: number, y: number) {
+	getSubGrid<T>(board: T[][], x: number, y: number) {
 		const subX = Math.floor(x / 3) * 3 
 		const subY = Math.floor(y / 3) * 3
-		const subGrid: Square[] = []
+		const subGrid: T[] = []
 		for (let i = subY; i < subY + 3; i++) {
 			for (let j = subX; j < subX + 3; j++) {
 				if (i !== y && j !== x) { // TODO 🥶
@@ -55,15 +42,14 @@ export class SudokuService {
 		}
 		return subGrid
 	}
-
 	getPossibleNumbers(board: Square[][], numbers: number[] | null, y: number, x: number) {
 		if (numbers === null) {
 			numbers = Array.from(Array(9).keys()).map((n) => n + 1)
 		}
 		return numbers.filter((num) => {
-		  const row = this.getRow(board, y)
+		  const row = board[y]
 		  if (row.some((square) => square.value === num)) return false
-		  const col = this.getCol(board, x)
+		  const col = board.map((row) => row[x])
 		  if (col.some((square) => square.value === num)) return false
 		  const tiles = this.getSubGrid(board, x, y)
 		  if (tiles.some((square) => square.value === num)) return false
@@ -95,42 +81,5 @@ export class SudokuService {
 		}
 		board[y][x].value = null
 		return false
-	}
-
-	toggleAuto() { // TODO wut
-		this.auto = !this.auto
-	}
-
-	incrementSquare(board: Square[][], y: number, x: number) {
-		// TODO reverse mode based on switch or keyboard input
-		let currentValue = board[y][x].value
-		switch (true) {
-			case currentValue === null:
-				board[y][x].value = 1
-				break;
-			case currentValue === 9:
-				board[y][x].value = null
-				break;
-			default:
-				board[y][x].value = (currentValue ?? 1) + 1
-				break;
-		}
-		// this.updateSquares()
-	}
-
-	decrementSquare(board: Square[][], y: number, x: number) {
-		// TODO lol
-		let currentValue = board[y][x].value
-		switch (true) {
-			case currentValue === null:
-				board[y][x].value = 9
-				break;
-			case currentValue === 1:
-				board[y][x].value = null
-				break;
-			default:
-				board[y][x].value = (currentValue ?? 9) - 1
-				break;
-		}
 	}
 }

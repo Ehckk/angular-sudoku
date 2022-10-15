@@ -1,4 +1,4 @@
-.playboard__square { 
+.square { 
 	height: 100%;
 	width: 100%;
 	border-width: .0625rem;
@@ -13,29 +13,29 @@
 	font-size: 2.5rem;
 	font-weight: bold;
 }
-.playboard__square.mx {
+.square.mx {
 	margin-left: 10%;
 }
-.playboard__square.my {
+.square.my {
 	margin-top: 10%;
 }
-.playboard__square.unfilled {
+.square.empty {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: repeat(3, 1fr);
 }
-.playboard__square.locked {
+.square.locked {
 	background-color: var(--blue-200);
 }
-.playboard__square.invalid {
+.square.invalid {
 	background-color: var(--red-500);
 }
-.playboard__square.locked.invalid {
+.square.locked.invalid {
 	background-color: var(--red-400);
 }
-.playboard__square.selected {
+.square.selected {
 	background-color: var(--green-500);
 }
-.playboard__square.selected.locked {
+.square.selected.locked {
 	background-color: var(--green-600);
 }

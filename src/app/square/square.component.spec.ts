@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PlaysquareComponent } from './playsquare.component';
+import { SquareComponent } from './square.component';
 
-describe('PlaysquareComponent', () => {
-  let component: PlaysquareComponent;
-  let fixture: ComponentFixture<PlaysquareComponent>;
+describe('SquareComponent', () => {
+  let component: SquareComponent;
+  let fixture: ComponentFixture<SquareComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PlaysquareComponent ]
+      declarations: [ SquareComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PlaysquareComponent);
+    fixture = TestBed.createComponent(SquareComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

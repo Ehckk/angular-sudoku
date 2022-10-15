@@ -1,0 +1,8 @@
+<div class="container">
+	<board [state]="state"></board>
+	<div class="buttonWrapper">
+		<button [class.disabled]="state.status !== 'Full' && state.status !== 'Error'" (click)="clearBoard()">{{ 'Clear' }}</button>
+		<button [class.disabled]="state.status !== 'Empty'" (click)="generateBoard()">{{ 'Generate' }}</button>
+		<button [class.disabled]="state.status !== 'Full'" (click)="saveBoard()">{{ 'Save' }}</button>
+	</div>
+</div>

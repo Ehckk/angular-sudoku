@@ -1,25 +1,31 @@
 .navbar {
 	background-color: var(--color-1);
 	color: var(--font-1);
-}
-.navbar__header, .navbar__links {
-	width: 100%;
 	padding: .5rem;
 	display: flex;
+	justify-content: space-between;
 }
 .navbar__header {
+	width: 100%;
+	display: flex;
 	align-items: center;
 	justify-content: space-between;
 }
 .navbar__title {
-	padding-left: 2rem;
-	font-size: 2.25rem;
+	padding: .5rem;
+	font-size: 2.5rem;
+	line-height: 1;
+	align-items: center;
+
 }
 .navbar__links {
-	margin-bottom: 2rem;
-	padding: .5rem;
-	background-color: var(--color-2);
-	justify-content: space-evenly;
+	width: 100%;
+	line-height: 1;
+	padding-bottom: .5rem;
+	display: flex;
+	align-items: flex-end;
+	justify-content: left;
+	text-align: right;
 	user-select: none;
 }
 .navbar__item, .navbar__handle {
@@ -28,23 +34,15 @@
 }
 .navbar__item {
 	color: var(--font-2);
-	font-size: 1.67rem;
+	font-size: 1.5rem;
+	margin-left: 1rem;
+	margin-right: 2rem;
 	font-weight: bold;
 	list-style: none;
-	text-decoration-style: solid;
-	text-decoration-line: underline;
-	text-decoration-color: transparent;
-	text-underline-offset: .125em;
-	transition-property: text-decoration-color, color;
 }
-.navbar__item.active {
-	text-decoration-color: var(--font-2);
-	pointer-events: none;
-}
-/* TODO pseudoelements */
+
 .navbar__item:hover {
 	color: var(--font-1);
-	text-decoration-color: var(--font-1);
 }
 .navbar__switch {
 	margin: .5rem;

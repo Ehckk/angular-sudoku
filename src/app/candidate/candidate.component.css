@@ -1,40 +1,42 @@
-.candidate__subsquare {
+.subsquare {
 	cursor: pointer;
 	width: 100%;
 	height: 100%;
-	font-size: .875rem;
+	font-size: .75rem;
+	line-height: 1;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	color: transparent;	
+	color: var(--blue-700);
 }
-.candidate__subsquare.auto {
+/* .subsquare.auto {
 	pointer-events: none;
+} */
+.subsquare:hover {
+	
 }
-.candidate__subsquare:hover {
-	color: var(--color-candidate);
-}
-.candidate__subsquare.selected {
+.subsquare.selected {
 	color: var(--color-border);
 }
-.candidate__subsquare.selected:hover {
+.subsquare.selected:hover {
 	color: var(--color-button);
 }
-.candidate__subsquare.hidden {
+.subsquare.hidden {
 	visibility: hidden;
 }
-.candidate__subsquare.highlighted:hover {
+.subsquare.highlighted:hover {
 	color: var(--color-color-3)
 }
-.candidate__subsquare.highlighted.selected {
+.subsquare.highlighted.selected {
 	color: var(--color-button-disabled)
 }
-.candidate__subsquare.highlighted.selected:hover {
+.subsquare.highlighted.selected:hover {
 	color: var(--color-border-dark);
 }
-.candidate__subsquare.auto {
+.subsquare.auto {
 	color: var(--color-border);
 }
-.candidate__subsquare.highlighted.auto {
+.subsquare.highlighted.auto {
 	color: var(--color-button-disabled)
 }

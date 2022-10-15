@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViewboardComponent } from './viewboard.component';
+import { PlayComponent } from './play.component';
 
-describe('ViewboardComponent', () => {
-  let component: ViewboardComponent;
-  let fixture: ComponentFixture<ViewboardComponent>;
+describe('PlayComponent', () => {
+  let component: PlayComponent;
+  let fixture: ComponentFixture<PlayComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ViewboardComponent ]
+      declarations: [ PlayComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ViewboardComponent);
+    fixture = TestBed.createComponent(PlayComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,21 @@
+<div class="board" [class.loading]="state.mode === 'PLAY' && state.status === 'Fetching'">
+	<ng-container *ngFor="let row of state.squares; let y = index">
+		<ng-container *ngFor="let col of row; let x = index">
+			<ng-container [ngSwitch]="state.mode">
+				<square 
+					[mode]="this.state.mode"
+					[x]="x"
+					[y]="y"
+					[value]="this.state.squares[y][x].value"
+					[locked]="this.state.mode === 'PLAY' ? this.state.squares[y][x].locked : false"
+					[selected]="this.state.highlightX === x && this.state.highlightY === y"
+					[invalid]="this.state.mode === 'PLAY' ? this.state.squares[y][x].invalid : false"
+					(squareClick)="selectSquare($event)">
+				</square>
+			</ng-container>
+		</ng-container>
+	</ng-container>
+</div>
+<!-- <ng-container *ngSwitchCase="'PLAY'">
+	<ng-container *ngSwitchCase="isFetching">
+		<span class="board__spinner"></span> -->
