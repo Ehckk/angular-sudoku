@@ -2,41 +2,27 @@
 	cursor: pointer;
 	width: 100%;
 	height: 100%;
-	font-size: .75rem;
+	font-size: .825rem;
 	line-height: 1;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: transparent;	
-	color: var(--blue-700);
-}
-/* .subsquare.auto {
-	pointer-events: none;
-} */
-.subsquare:hover {
-	
+	font-weight: bold;
+	color: var(--blue-600);
+	opacity: 0.2;
+	transition-property: opacity;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
 }
 .subsquare.selected {
-	color: var(--color-border);
+	opacity: .7;
 }
-.subsquare.selected:hover {
-	color: var(--color-button);
+.subsquare:hover {
+	opacity: .55;
 }
 .subsquare.hidden {
-	visibility: hidden;
+	opacity: 0;
 }
-.subsquare.highlighted:hover {
-	color: var(--color-color-3)
-}
-.subsquare.highlighted.selected {
-	color: var(--color-button-disabled)
-}
-.subsquare.highlighted.selected:hover {
-	color: var(--color-border-dark);
-}
-.subsquare.auto {
-	color: var(--color-border);
-}
-.subsquare.highlighted.auto {
-	color: var(--color-button-disabled)
+.subsquare.subsquare.selected.hidden, .subsquare.subsquare.selected:hover {
+	opacity: 1;
 }

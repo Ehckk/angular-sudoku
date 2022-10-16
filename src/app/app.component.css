@@ -13,6 +13,8 @@
 }
 .navbar__title {
 	padding: .5rem;
+	margin-left: 2rem;
+	margin-right: 2rem;
 	font-size: 2.5rem;
 	line-height: 1;
 	align-items: center;
@@ -39,10 +41,12 @@
 	margin-right: 2rem;
 	font-weight: bold;
 	list-style: none;
+	transition-property: opacity;
+	opacity: .75;
 }
 
 .navbar__item:hover {
-	color: var(--font-1);
+	opacity: 1;
 }
 .navbar__switch {
 	margin: .5rem;

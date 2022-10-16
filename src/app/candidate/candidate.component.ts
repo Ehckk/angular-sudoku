@@ -14,6 +14,8 @@ export class CandidateComponent {
   constructor(public sudoku: SudokuService) { }
 
   handleClick() {
-    this.selected = !this.selected
+    if (!this.hidden) {
+      this.selected = !this.selected
+    }
   }
 }

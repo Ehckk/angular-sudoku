@@ -3,14 +3,14 @@
 		[class.my]="y > 0 && y % 3 === 0"
 		[class.selected]="selected"  
 		[class.locked]="locked" 
+		[class.invalid]="invalid" 
 		[class.empty]="value === null"
 		(click)="squareClick.emit({ x, y })">{{ value }}
 		<ng-container *ngIf="mode === 'PLAY'">
 			<ng-container *ngIf="value === null">
 				<candidate *ngFor="let num of numbers" 
 					[candidate]="num"
-					[hidden]="false">
-					<!-- !selected  -->
+					[hidden]="!selected">
 			  </candidate>
 			  <!-- TODO bind enabled prop on candidate to getPossibleNumbers method for autocandidacy -->
 		  </ng-container>

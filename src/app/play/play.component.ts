@@ -95,16 +95,16 @@ export class PlayComponent implements OnInit {
   updateMoves() {
     if (this.state.mode === 'GENERATE') return
     const row = this.state.squares[this.state.highlightY]
-    row.forEach((square) => {
-      square.invalid = square.value ? this.sudoku.isMoveLegal(square, square.value, row) : false
+    row.forEach((square, i) => {
+      square.invalid = square.value ? !this.sudoku.isMoveLegal(square, this.state.highlightY, row) : false
     })
     const col = this.state.squares.map((row) => row[this.state.highlightX])
     col.forEach((square) => {
-      square.invalid = square.value ? this.sudoku.isMoveLegal(square, square.value, col) : false
+      square.invalid = square.value ? !this.sudoku.isMoveLegal(square, this.state.highlightX, col) : false
     })
     const tiles = this.sudoku.getSubGrid(this.state.squares, this.state.highlightX, this.state.highlightY)
     tiles.forEach((square) => {
-      square.invalid = square.value ? this.sudoku.isMoveLegal(square, square.value, tiles) : false
+      square.invalid = square.value ? !this.sudoku.isMoveLegal(square, (this.state.highlightX % 3) + (this.state.highlightY % 3), tiles) : false
     })
     return true
   }
@@ -138,5 +138,4 @@ export class PlayComponent implements OnInit {
         this.updateMoves()
     }
   }
-  
 }

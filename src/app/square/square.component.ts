@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { SudokuService } from 'src/services/sudoku.service';
 import { SudokuValue } from 'src/types/SudokuValue';
 
@@ -7,7 +7,7 @@ import { SudokuValue } from 'src/types/SudokuValue';
   templateUrl: './square.component.html',
   styleUrls: ['./square.component.css']
 })
-export class SquareComponent implements OnInit {
+export class SquareComponent{
   @Input() mode: 'GENERATE' | 'PLAY'
   @Input() x: number
   @Input() y: number
@@ -19,8 +19,4 @@ export class SquareComponent implements OnInit {
   numbers = Array.from(Array(9).keys()).map((n) => n + 1)
 
   constructor(public sudoku: SudokuService) { }
-
-  ngOnInit(): void {
-    // this.sudoku.getPossibleNumbers(currentBoard, null, y, x)
-  }
 }

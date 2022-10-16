@@ -23,7 +23,7 @@ export class SudokuService {
 	}
 	isMoveLegal(sq1: Square, i1: number, squares: Square[]) {
 		if (sq1.value === null) return true
-		return squares.some((sq2, i2) => i1 === i2 ? true : sq1.value === sq2.value)
+		return squares.every((sq2, i2) => i1 !== i2 || sq1.value !== sq2.value)
 	}
 	getSubGrid<T>(board: T[][], x: number, y: number) {
 		const subX = Math.floor(x / 3) * 3 
